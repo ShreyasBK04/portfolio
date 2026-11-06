@@ -6,7 +6,7 @@ export const portfolioData = {
   name: "Shreyas B K",
   brand: "SBK.",
   portfolioTitle: "THE HUMAN BEHIND THE CODE",
-  professionalTitle: "Full Stack Developer | AI Enthusiast",
+  professionalTitle: "Full Stack Developer",
   heroSubtitle: "Creative Engineering • Intelligent Systems • Modern Architecture",
   personalIntro: "I build real-world applications by combining software engineering, creativity and intelligent technologies.",
   philosophy: "AI is powerful. But creativity, engineering and human direction turn it into something meaningful.",
@@ -27,7 +27,7 @@ export const portfolioData = {
   contact: {
     heading: "Have an idea? Let's build something meaningful.",
     subheading: "Whether you have an exciting project, a job opportunity, or just want to talk about full-stack engineering and AI, I'd love to connect.",
-    email: "shreyasbk.dev@gmail.com", // Replace with your exact email if different
+    email: "shreyasbk25@gmail.com", // Replace with your exact email if different
   },
   assets: {
     heroVideo: "/videos/hero-battle.mp4",
