@@ -37,6 +37,7 @@ export const CinematicVideo = () => {
         <video
           ref={videoRef}
           src={portfolioData.assets.heroVideo}
+          poster="/videos/hero-battle-poster.jpg"
           playsInline
           muted={isMuted}
           preload="auto"
