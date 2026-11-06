@@ -1,0 +1,40 @@
+/* Subtle Cinematic & Editorial Animations */
+
+@keyframes subtle-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(255, 121, 0, 0.15), inset 0 0 15px rgba(255, 121, 0, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 121, 0, 0.35), inset 0 0 20px rgba(255, 121, 0, 0.1);
+  }
+}
+
+.animate-subtle-glow {
+  animation: subtle-glow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.04); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 6s ease-in-out infinite;
+}
+
+/* Glass & Card Borders */
+.border-editorial {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.border-editorial:hover {
+  border-color: rgba(255, 121, 0, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(255, 121, 0, 0.15);
+}
+
+/* Smooth transition utility */
+.transition-editorial {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
