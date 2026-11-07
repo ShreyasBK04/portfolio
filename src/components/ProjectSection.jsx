@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { projects } from '../data/projects';
 import { ProjectCard } from './ProjectCard';
-import { Layers, ArrowRight, ArrowLeft, MoveRight } from 'lucide-react';
+import { Layers, ArrowRight, MoveRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -21,15 +21,15 @@ export const ProjectSection = () => {
     const ctx = gsap.context(() => {
       const mm = gsap.matchMedia();
 
-      // Desktop & Large Screens (>= 1024px): Pinned Horizontal Scrolling
+      // Desktop & Laptop Screens (>= 1024px): Pinned Horizontal Scrolling
       mm.add("(min-width: 1024px)", () => {
         const track = trackRef.current;
         const section = sectionRef.current;
         if (!track || !section) return;
 
-        // Dynamic calculation of horizontal travel distance
+        // Dynamic horizontal travel distance based on total track width vs viewport
         const calculateDistance = () => {
-          return track.scrollWidth - window.innerWidth + 120;
+          return track.scrollWidth - window.innerWidth + 140;
         };
 
         const tween = gsap.to(track, {
@@ -38,7 +38,7 @@ export const ProjectSection = () => {
           scrollTrigger: {
             trigger: section,
             pin: true,
-            scrub: 1.1, // Smooth cinematic scrub
+            scrub: 1, // Smooth, responsive scrubbing
             start: "top top",
             end: () => `+=${calculateDistance()}`,
             invalidateOnRefresh: true,
@@ -47,14 +47,15 @@ export const ProjectSection = () => {
               const currentProgress = self.progress;
               setProgress(currentProgress);
               
-              // Calculate which project is in focus
+              // Map progress smoothly across active projects
               const totalItems = visibleProjects.length;
               if (totalItems > 0) {
-                const idx = Math.min(
+                const segment = 1 / totalItems;
+                const activeIdx = Math.min(
                   totalItems - 1,
-                  Math.floor(currentProgress * totalItems)
+                  Math.floor(currentProgress / segment)
                 );
-                setActiveProjectIndex(idx);
+                setActiveProjectIndex(activeIdx);
               }
             }
           }
@@ -76,27 +77,27 @@ export const ProjectSection = () => {
       ref={sectionRef}
       className="editorial-section relative bg-[#090A0D] overflow-hidden select-none"
     >
-      {/* DESKTOP PINNED HORIZONTAL VIEW (>= 1024px) */}
-      <div className="hidden lg:flex flex-col justify-between w-full h-screen py-10 px-8 xl:px-12 relative overflow-hidden">
+      {/* DESKTOP PINNED HORIZONTAL SHOWCASE (>= 1024px) */}
+      <div className="hidden lg:flex flex-col justify-between w-full h-screen pt-24 xl:pt-28 pb-8 px-8 xl:px-14 relative overflow-hidden">
         
-        {/* Top Sticky Editorial Header & Progress Bar */}
-        <div className="w-full flex items-center justify-between border-b border-white/10 pb-4 relative z-20">
+        {/* Top Header & Navigation Deck — Positioned cleanly below the fixed navbar */}
+        <div className="w-full flex items-center justify-between border-b border-white/10 pb-4 relative z-20 shrink-0">
           <div>
             <div className="inline-flex items-center space-x-2 text-xs font-mono text-accent tracking-widest uppercase">
               <Layers className="w-4 h-4" />
               <span>SCENE 04 // APPLIED ENGINEERING SHOWCASE</span>
             </div>
-            <h2 className="text-3xl xl:text-4xl font-extrabold font-display text-white tracking-tight mt-1">
+            <h2 className="text-2xl xl:text-4xl font-extrabold font-display text-white tracking-tight mt-1">
               Featured <span className="text-gradient-orange">Projects.</span>
             </h2>
           </div>
 
-          {/* Project Counter & Horizontal Scrub Bar */}
+          {/* Project Counter & Horizontal Progress Bar */}
           <div className="flex items-center space-x-6">
             <div className="text-right">
-              <span className="text-xs font-mono text-content-muted block">SHOWCASE NAVIGATION</span>
-              <div className="text-sm font-mono text-white">
-                <span className="text-accent font-bold">
+              <span className="text-[11px] font-mono text-content-muted block">CASE STUDY</span>
+              <div className="text-sm font-mono text-white transition-all duration-300">
+                <span className="text-accent font-bold text-base">
                   {String(activeProjectIndex + 1).padStart(2, '0')}
                 </span>
                 <span className="mx-1 text-white/30">/</span>
@@ -104,70 +105,50 @@ export const ProjectSection = () => {
               </div>
             </div>
 
-            <div className="w-40 xl:w-56 h-1.5 bg-white/10 rounded-full overflow-hidden relative">
+            {/* Scrub Progress Bar */}
+            <div className="w-36 xl:w-52 h-1.5 bg-white/10 rounded-full overflow-hidden relative">
               <div
-                className="absolute top-0 bottom-0 left-0 bg-gradient-to-r from-accent to-[#FFAA32] rounded-full transition-all duration-75"
+                className="absolute top-0 bottom-0 left-0 bg-gradient-to-r from-accent to-[#FFAA32] rounded-full transition-all duration-100"
                 style={{ width: `${Math.min(100, Math.max(5, progress * 100))}%` }}
               />
             </div>
 
-            <div className="flex items-center space-x-1 text-xs font-mono text-content-secondary bg-[#151820] px-3 py-1.5 rounded-lg border border-white/10">
-              <span>Scroll Down to Pan</span>
+            {/* Scroll Direction Indicator */}
+            <div className="flex items-center space-x-1.5 text-xs font-mono text-content-secondary bg-[#151820] px-3 py-1.5 rounded-lg border border-white/10">
+              <span>Scroll to Pan</span>
               <MoveRight className="w-3.5 h-3.5 text-accent animate-pulse" />
             </div>
           </div>
         </div>
 
-        {/* Dynamic Horizontal Scrolling Track */}
-        <div className="relative w-full flex-1 flex items-center overflow-hidden my-auto">
+        {/* Dynamic Horizontal Scrolling Track — Vertically Centered in Available Viewport */}
+        <div className="relative w-full flex-1 flex items-center overflow-hidden my-auto py-2">
           <div
             ref={trackRef}
-            className="flex items-center space-x-12 pl-4 pr-32 will-change-transform"
+            className="flex items-center space-x-8 xl:space-x-12 pl-2 pr-32 will-change-transform"
           >
-            {/* Gallery Introductory Milestone Card */}
-            <div className="w-[380px] xl:w-[420px] shrink-0 p-8 rounded-2xl bg-[#111319] border border-white/10 flex flex-col justify-between h-[480px]">
-              <div>
-                <span className="text-xs font-mono text-[#FFAA32] uppercase tracking-widest block mb-2">
-                  CASE STUDIES // 2026
-                </span>
-                <h3 className="text-2xl xl:text-3xl font-extrabold font-display text-white tracking-tight leading-snug">
-                  Full Stack &amp; Intelligent System Deployments.
-                </h3>
-                <p className="text-sm text-content-secondary font-body leading-relaxed mt-4">
-                  Each project represents end-to-end software architecture combining Java microservices, Spring Boot backends, PostgreSQL, and contextual Gemini API integrations.
-                </p>
-              </div>
-
-              <div className="pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-content-muted">
-                <span>{visibleProjects.length} Verified Case Studies</span>
-                <span className="text-accent flex items-center space-x-1">
-                  <span>Scroll to Explore</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </span>
-              </div>
-            </div>
-
-            {/* Dynamic Project Cards */}
+            {/* Dynamic Project Cards — Project 01 starts in focus with Project 02 peeked on the right */}
             {visibleProjects.map((project, idx) => (
               <ProjectCard
                 key={project.id}
                 project={project}
                 index={idx}
                 isHorizontal={true}
+                isActive={activeProjectIndex === idx}
               />
             ))}
 
-            {/* Ending Transition Pill (Seamlessly leads into Skills) */}
-            <div className="w-[320px] shrink-0 p-8 rounded-2xl bg-gradient-to-br from-[#151820] to-[#090A0D] border border-accent/30 flex flex-col justify-between h-[480px] shadow-glow-sm">
+            {/* Outro Transition Card leading smoothly into Skills Section */}
+            <div className="w-[300px] xl:w-[340px] shrink-0 p-7 xl:p-8 rounded-2xl bg-gradient-to-br from-[#151820] to-[#0E1017] border border-accent/30 flex flex-col justify-between max-h-[calc(100vh-220px)] h-[380px] shadow-glow-sm">
               <div>
                 <span className="text-xs font-mono text-accent uppercase tracking-widest block mb-2">
-                  NEXT SECTION
+                  NEXT CHAPTER // 05
                 </span>
-                <h4 className="text-2xl font-bold font-display text-white tracking-tight leading-snug">
-                  Technical Stack &amp; Core Disciplines.
+                <h4 className="text-xl xl:text-2xl font-bold font-display text-white tracking-tight leading-snug">
+                  Technical Stack &amp; Architecture.
                 </h4>
                 <p className="text-xs text-content-secondary mt-3 leading-relaxed">
-                  Continue scrolling down to explore languages, backend frameworks, relational databases, and developer tooling.
+                  Continue scrolling to explore programming languages, enterprise backend frameworks, and relational databases.
                 </p>
               </div>
 
@@ -182,19 +163,14 @@ export const ProjectSection = () => {
           </div>
         </div>
 
-        {/* Bottom Ambient Vignette & Status */}
-        <div className="w-full flex items-center justify-between text-[11px] font-mono text-content-muted pt-2 border-t border-white/5 relative z-20">
-          <span>Horizontal Gallery Controller Active</span>
-          <span className="text-[#FFAA32]">GSAP ScrollTrigger Pinned Showcase</span>
-        </div>
       </div>
 
       {/* TABLET & MOBILE RESPONSIVE VIEW (< 1024px) */}
-      {/* Uses native accessible vertical flow / touch carousel with zero scroll hijacking */}
+      {/* Uses native accessible vertical flow with zero scroll hijacking */}
       <div className="lg:hidden py-16 px-4 sm:px-6">
         
         {/* Mobile Header */}
-        <div className="mb-10 border-b border-white/10 pb-6">
+        <div className="mb-10 border-b border-white/10 pb-6 pt-6">
           <div className="inline-flex items-center space-x-2 text-xs font-mono text-accent mb-2 tracking-widest uppercase">
             <Layers className="w-4 h-4" />
             <span>SCENE 04 // APPLIED ENGINEERING</span>
@@ -215,6 +191,7 @@ export const ProjectSection = () => {
               project={project}
               index={idx}
               isHorizontal={false}
+              isActive={false}
             />
           ))}
         </div>
