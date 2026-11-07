@@ -204,17 +204,17 @@ export const ProjectCard = ({ project, index = 0, isHorizontal = false, isActive
               ))}
             </div>
 
-            {/* Action Links — Only rendered if valid URLs exist */}
+            {/* Action Links — Subtle outlined buttons with orange hover */}
             <div className="flex flex-wrap items-center gap-3">
               {project.githubUrl && project.githubUrl.trim() !== '' && (
                 <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-1.5 px-4 py-1.5 rounded-lg bg-[#151820] border border-white/15 hover:border-accent text-white text-xs font-semibold tracking-wide transition-all duration-200"
+                  className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-[#151820]/80 border border-white/15 hover:border-accent text-white hover:text-accent text-xs font-semibold tracking-wide transition-all duration-200 hover:shadow-glow-sm"
                 >
                   <GithubIcon className="w-3.5 h-3.5 text-accent" />
-                  <span>View Repository</span>
+                  <span>GitHub Repository</span>
                 </a>
               )}
 
@@ -223,18 +223,11 @@ export const ProjectCard = ({ project, index = 0, isHorizontal = false, isActive
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-1.5 px-4 py-1.5 rounded-lg bg-accent hover:bg-[#FFAA32] text-black text-xs font-bold font-display uppercase tracking-wider transition-all duration-200 shadow-glow-sm"
+                  className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-[#151820]/80 border border-white/15 hover:border-accent text-white hover:text-accent text-xs font-semibold tracking-wide transition-all duration-200 hover:shadow-glow-sm"
                 >
-                  <span>Live Application</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>Live Demo</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-accent" />
                 </a>
-              )}
-
-              {(!project.githubUrl || project.githubUrl.trim() === '') && (!project.liveUrl || project.liveUrl.trim() === '') && (
-                <div className="inline-flex items-center space-x-2 text-[11px] font-mono text-content-muted">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent/60" />
-                  <span>Architecture &amp; Source code available upon interview request</span>
-                </div>
               )}
             </div>
           </div>

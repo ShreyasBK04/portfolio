@@ -1,9 +1,11 @@
 /**
  * Projects Showcase
  * Single source of truth from resume.
- * Add or edit projects here.
- * Set githubUrl or liveUrl to null or empty string if not available yet;
- * the UI will automatically omit the button without breaking.
+ * 
+ * GitHub & Live Demo Action Buttons:
+ * - Enter your repository URL in `githubUrl` to display the "GitHub Repository" button.
+ * - Enter your live deployment URL in `liveUrl` to display the "Live Demo" button.
+ * - If left empty or null, that button is automatically hidden without breaking layout.
  */
 export const projects = [
   {
@@ -27,8 +29,8 @@ export const projects = [
       "Gemini API"
     ],
     image: "/images/projects/contractiq.svg",
-    githubUrl: null, // Only render if URL is provided
-    liveUrl: null,
+    githubUrl: "", // e.g. "https://github.com/shreyasbk/ContractIQ"
+    liveUrl: "",   // e.g. "https://contractiq-demo.vercel.app"
     featured: true,
     visible: true
   },
@@ -51,8 +53,8 @@ export const projects = [
       "Gemini API"
     ],
     image: "/images/projects/research-assistant.svg",
-    githubUrl: null, // Only render if URL is provided
-    liveUrl: null,
+    githubUrl: "", // e.g. "https://github.com/shreyasbk/ai-research-assistant"
+    liveUrl: "",   // e.g. "https://chrome.google.com/webstore/..."
     featured: true,
     visible: true
   }
