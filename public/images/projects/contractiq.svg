@@ -1,73 +1,157 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0E1017"/>
       <stop offset="100%" stop-color="#090A0D"/>
     </linearGradient>
-    <linearGradient id="orangeGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="orangeBar" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#FF7900"/>
       <stop offset="100%" stop-color="#FFAA32"/>
     </linearGradient>
-    <radialGradient id="radial" cx="70%" cy="30%" r="60%">
-      <stop offset="0%" stop-color="#FF7900" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#090A0D" stop-opacity="0"/>
-    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
   </defs>
-  <rect width="100%" height="100%" fill="url(#bg)"/>
-  <rect width="100%" height="100%" fill="url(#radial)"/>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGrad)"/>
   
-  <!-- Grid Lines -->
-  <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
-    <line x1="100" y1="0" x2="100" y2="675"/>
-    <line x1="300" y1="0" x2="300" y2="675"/>
-    <line x1="500" y1="0" x2="500" y2="675"/>
-    <line x1="700" y1="0" x2="700" y2="675"/>
-    <line x1="900" y1="0" x2="900" y2="675"/>
-    <line x1="1100" y1="0" x2="1100" y2="675"/>
-    <line x1="0" y1="135" x2="1200" y2="135"/>
-    <line x1="0" y1="270" x2="1200" y2="270"/>
-    <line x1="0" y1="405" x2="1200" y2="405"/>
-    <line x1="0" y1="540" x2="1200" y2="540"/>
+  <!-- Subtle Grid -->
+  <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <line x1="160" y1="0" x2="160" y2="720"/>
+    <line x1="320" y1="0" x2="320" y2="720"/>
+    <line x1="480" y1="0" x2="480" y2="720"/>
+    <line x1="640" y1="0" x2="640" y2="720"/>
+    <line x1="800" y1="0" x2="800" y2="720"/>
+    <line x1="960" y1="0" x2="960" y2="720"/>
+    <line x1="1120" y1="0" x2="1120" y2="720"/>
+    <line x1="0" y1="180" x2="1280" y2="180"/>
+    <line x1="0" y1="360" x2="1280" y2="360"/>
+    <line x1="0" y1="540" x2="1280" y2="540"/>
   </g>
 
-  <!-- Contract Card UI Mockup -->
-  <g transform="translate(140, 85)">
-    <!-- Browser window chrome -->
-    <rect width="920" height="505" rx="12" fill="#151820" stroke="#FF7900" stroke-opacity="0.3" stroke-width="1.5"/>
-    <rect width="920" height="42" rx="12" fill="#1a1e28"/>
-    <circle cx="28" cy="21" r="5" fill="#EF4444"/>
-    <circle cx="48" cy="21" r="5" fill="#F59E0B"/>
-    <circle cx="68" cy="21" r="5" fill="#10B981"/>
-    <text x="460" y="26" fill="#A5A9B2" font-family="'Space Grotesk', sans-serif" font-size="12" text-anchor="middle" letter-spacing="1">CONTRACTIQ // AI LEGAL ANALYZER</text>
+  <!-- Top App Navigation Bar -->
+  <rect x="40" y="30" width="1200" height="60" rx="10" fill="#151820" stroke="#ffffff" stroke-opacity="0.08"/>
+  <circle cx="70" cy="60" r="6" fill="#EF4444"/>
+  <circle cx="90" cy="60" r="6" fill="#F59E0B"/>
+  <circle cx="110" cy="60" r="6" fill="#10B981"/>
+  
+  <!-- App Title & Status -->
+  <text x="145" y="66" fill="#F5F5F5" font-family="'Space Grotesk', -apple-system, sans-serif" font-weight="700" font-size="16" letter-spacing="0.5">ContractIQ</text>
+  <rect x="250" y="47" width="165" height="26" rx="13" fill="#FF7900" fill-opacity="0.12" stroke="#FF7900" stroke-opacity="0.4"/>
+  <text x="332" y="64" fill="#FFAA32" font-family="'Space Grotesk', sans-serif" font-weight="600" font-size="11" text-anchor="middle">AI LEGAL ANALYZER</text>
 
-    <!-- Content Split -->
-    <!-- Left: PDF Extraction & Clauses -->
-    <rect x="35" y="70" width="410" height="395" rx="8" fill="#0E1017" stroke="#ffffff" stroke-opacity="0.06"/>
-    <text x="60" y="110" fill="#FF7900" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="16" letter-spacing="1">PDF CLAUSE EXTRACTION</text>
+  <!-- Right App Badges -->
+  <rect x="990" y="47" width="130" height="26" rx="6" fill="#090A0D" stroke="#ffffff" stroke-opacity="0.1"/>
+  <circle cx="1006" cy="60" r="3.5" fill="#10B981"/>
+  <text x="1018" y="64" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="11">Gemini Pro API</text>
+
+  <rect x="1132" y="47" width="90" height="26" rx="6" fill="#FF7900" fill-opacity="0.2" stroke="#FF7900" stroke-opacity="0.6"/>
+  <text x="1177" y="64" fill="#FF7900" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="11" text-anchor="middle">JWT AUTH</text>
+
+  <!-- Main Content Split (Left: Extracted PDF Clauses, Right: AI Risk Analysis) -->
+
+  <!-- LEFT PANE: Extracted PDF Clauses -->
+  <g transform="translate(40, 110)">
+    <rect width="585" height="570" rx="12" fill="#111319" stroke="#ffffff" stroke-opacity="0.08"/>
     
-    <rect x="60" y="135" width="360" height="50" rx="6" fill="#151820" stroke="#ffffff" stroke-opacity="0.05"/>
-    <text x="80" y="165" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="13">Section 12.4 — Indemnification & Liability Limit</text>
+    <!-- Header -->
+    <rect width="585" height="50" rx="12" fill="#151820"/>
+    <text x="24" y="32" fill="#F5F5F5" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14">Master_Services_Agreement_v3.pdf</text>
+    <rect x="440" y="14" width="125" height="22" rx="4" fill="#090A0D"/>
+    <text x="502" y="29" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="10" text-anchor="middle">14 Pages • Extracted</text>
 
-    <rect x="60" y="200" width="360" height="50" rx="6" fill="#151820" stroke="#ffffff" stroke-opacity="0.05"/>
-    <text x="80" y="230" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="13">Section 14.1 — IP Assignment & Ownership</text>
+    <!-- Clause 1 (High Risk Flag) -->
+    <g transform="translate(20, 70)">
+      <rect width="545" height="135" rx="8" fill="#181315" stroke="#EF4444" stroke-opacity="0.5"/>
+      <rect x="15" y="14" width="95" height="20" rx="4" fill="#EF4444" fill-opacity="0.2"/>
+      <text x="62" y="28" fill="#EF4444" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="10" text-anchor="middle">HIGH LIABILITY</text>
+      <text x="120" y="28" fill="#F5F5F5" font-family="'Space Grotesk', sans-serif" font-weight="600" font-size="12">Section 9.2 — Indemnification &amp; Uncapped Loss</text>
+      <text x="15" y="60" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="12">"Vendor indemnifies and holds harmless Client against any and all claims,</text>
+      <text x="15" y="80" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="12">damages, losses, and legal costs arising from any breach with no aggregate</text>
+      <text x="15" y="100" fill="#EF4444" font-family="'Inter', sans-serif" font-size="12" font-weight="500">limitation on liability under this agreement."</text>
+    </g>
 
-    <rect x="60" y="265" width="360" height="50" rx="6" fill="#151820" stroke="#ffffff" stroke-opacity="0.05"/>
-    <text x="80" y="295" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="13">Section 18.2 — Non-Compete Scope & Jurisdiction</text>
+    <!-- Clause 2 (Moderate Risk Flag) -->
+    <g transform="translate(20, 225)">
+      <rect width="545" height="125" rx="8" fill="#161512" stroke="#FFAA32" stroke-opacity="0.5"/>
+      <rect x="15" y="14" width="105" height="20" rx="4" fill="#FFAA32" fill-opacity="0.15"/>
+      <text x="67" y="28" fill="#FFAA32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="10" text-anchor="middle">MODERATE RISK</text>
+      <text x="130" y="28" fill="#F5F5F5" font-family="'Space Grotesk', sans-serif" font-weight="600" font-size="12">Section 14.1 — Intellectual Property Assignment</text>
+      <text x="15" y="60" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="12">"All pre-existing background technology utilized in creating deliverables</text>
+      <text x="15" y="80" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="12">shall become sole and exclusive property of the commissioning client."</text>
+    </g>
 
-    <!-- Right: AI Risk Engine Output -->
-    <rect x="475" y="70" width="410" height="395" rx="8" fill="#0E1017" stroke="#ffffff" stroke-opacity="0.06"/>
-    <text x="500" y="110" fill="#FFAA32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="16" letter-spacing="1">GEMINI AI RISK ASSESSMENT</text>
-    
-    <rect x="500" y="135" width="360" height="110" rx="6" fill="#FF7900" fill-opacity="0.08" stroke="#FF7900" stroke-opacity="0.4"/>
-    <text x="520" y="170" fill="#FF7900" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="13">RISK SCORE: 78 / 100 [HIGH EXPOSURE]</text>
-    <text x="520" y="195" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="12">Uncapped liability detected in indemnification clause.</text>
-    <text x="520" y="215" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="12">Mitigation: Cap damages to 12 months fee aggregate.</text>
+    <!-- Clause 3 (Compliant / Standard) -->
+    <g transform="translate(20, 370)">
+      <rect width="545" height="95" rx="8" fill="#121815" stroke="#10B981" stroke-opacity="0.4"/>
+      <rect x="15" y="14" width="85" height="20" rx="4" fill="#10B981" fill-opacity="0.15"/>
+      <text x="57" y="28" fill="#10B981" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="10" text-anchor="middle">STANDARD</text>
+      <text x="110" y="28" fill="#F5F5F5" font-family="'Space Grotesk', sans-serif" font-weight="600" font-size="12">Section 18.0 — Termination for Convenience (30 Days)</text>
+      <text x="15" y="60" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="12">"Either party may terminate without cause upon thirty (30) days notice."</text>
+    </g>
 
-    <rect x="500" y="265" width="360" height="150" rx="6" fill="#151820" stroke="#ffffff" stroke-opacity="0.05"/>
-    <text x="520" y="300" fill="#10B981" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="13">RECOMMENDED REMEDIATIONS</text>
-    <text x="520" y="330" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">• Automated Redline generation ready</text>
-    <text x="520" y="355" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">• Spring Boot JWT secure token verified</text>
-    <text x="520" y="380" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">• Database audit trail logged to PostgreSQL</text>
+    <!-- Extraction Footer Info -->
+    <g transform="translate(20, 485)">
+      <rect width="545" height="60" rx="8" fill="#151820" stroke="#ffffff" stroke-opacity="0.05"/>
+      <text x="20" y="36" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="11">Backend: Spring Boot PDFBox Parser • Status: 42 Clauses Ingested</text>
+    </g>
+  </g>
+
+  <!-- RIGHT PANE: Gemini AI Risk Assessment Engine -->
+  <g transform="translate(655, 110)">
+    <rect width="585" height="570" rx="12" fill="#111319" stroke="#FF7900" stroke-opacity="0.3"/>
+
+    <!-- Header -->
+    <rect width="585" height="50" rx="12" fill="#151820"/>
+    <text x="24" y="32" fill="#FF7900" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14">AI RISK ASSESSMENT ENGINE</text>
+    <rect x="430" y="14" width="135" height="22" rx="4" fill="#FF7900" fill-opacity="0.15" stroke="#FF7900" stroke-opacity="0.4"/>
+    <text x="497" y="29" fill="#FFAA32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="10" text-anchor="middle">GEMINI 1.5 PRO</text>
+
+    <!-- Risk Score Meter -->
+    <g transform="translate(20, 70)">
+      <rect width="545" height="95" rx="8" fill="#151820" stroke="#ffffff" stroke-opacity="0.06"/>
+      <text x="20" y="35" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="11">OVERALL CONTRACT RISK SCORE</text>
+      <text x="20" y="70" fill="#EF4444" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="28">78 / 100</text>
+      <text x="145" y="68" fill="#FFAA32" font-family="'Space Grotesk', sans-serif" font-weight="600" font-size="13">[HIGH EXPOSURE WARNING]</text>
+      
+      <!-- Progress Bar -->
+      <rect x="330" y="52" width="195" height="10" rx="5" fill="#090A0D"/>
+      <rect x="330" y="52" width="152" height="10" rx="5" fill="url(#orangeBar)"/>
+    </g>
+
+    <!-- AI Remediation Recommendations -->
+    <g transform="translate(20, 185)">
+      <rect width="545" height="175" rx="8" fill="#151820" stroke="#FF7900" stroke-opacity="0.2"/>
+      <text x="20" y="32" fill="#FFAA32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="12">AUTOMATED RISK MITIGATION RECOMMENDATIONS</text>
+      
+      <circle cx="30" cy="62" r="3" fill="#FF7900"/>
+      <text x="45" y="66" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">1. Cap Section 9.2 indemnity liability to 12 months fee aggregate.</text>
+
+      <circle cx="30" cy="97" r="3" fill="#FF7900"/>
+      <text x="45" y="101" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">2. Reserve pre-existing background IP rights explicitly in Section 14.1.</text>
+
+      <circle cx="30" cy="132" r="3" fill="#FF7900"/>
+      <text x="45" y="136" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">3. Add mutual termination notification window reciprocity.</text>
+    </g>
+
+    <!-- Database & Security Architecture Panel -->
+    <g transform="translate(20, 380)">
+      <rect width="545" height="165" rx="8" fill="#090A0D" stroke="#ffffff" stroke-opacity="0.06"/>
+      <text x="20" y="32" fill="#A5A9B2" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="11">PERSISTENCE &amp; SECURITY ARCHITECTURE</text>
+      
+      <rect x="20" y="50" width="160" height="36" rx="6" fill="#151820"/>
+      <text x="35" y="73" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="11">PostgreSQL v16</text>
+
+      <rect x="190" y="50" width="160" height="36" rx="6" fill="#151820"/>
+      <text x="205" y="73" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="11">Spring Security + JWT</text>
+
+      <rect x="360" y="50" width="160" height="36" rx="6" fill="#151820"/>
+      <text x="375" y="73" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="11">RBAC Multi-tenant</text>
+
+      <!-- Status indicator -->
+      <text x="20" y="125" fill="#10B981" font-family="'Space Grotesk', sans-serif" font-weight="600" font-size="12">✓ Audit Logged to PostgreSQL • JWT Session Verified</text>
+    </g>
   </g>
 </svg>
-

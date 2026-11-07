@@ -1,66 +1,120 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#090A0D"/>
-      <stop offset="100%" stop-color="#111319"/>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E1017"/>
+      <stop offset="100%" stop-color="#090A0D"/>
     </linearGradient>
-    <radialGradient id="radial2" cx="30%" cy="40%" r="65%">
-      <stop offset="0%" stop-color="#FFAA32" stop-opacity="0.16"/>
-      <stop offset="100%" stop-color="#090A0D" stop-opacity="0"/>
-    </radialGradient>
+    <linearGradient id="amberGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF7900"/>
+      <stop offset="100%" stop-color="#FFAA32"/>
+    </linearGradient>
   </defs>
-  <rect width="100%" height="100%" fill="url(#bg)"/>
-  <rect width="100%" height="100%" fill="url(#radial2)"/>
 
-  <!-- Chrome Window + Side Panel Mockup -->
-  <g transform="translate(140, 85)">
-    <rect width="920" height="505" rx="12" fill="#151820" stroke="#FFAA32" stroke-opacity="0.25" stroke-width="1.5"/>
-    <!-- Top Bar -->
-    <rect width="920" height="42" rx="12" fill="#1a1e28"/>
-    <circle cx="28" cy="21" r="5" fill="#EF4444"/>
-    <circle cx="48" cy="21" r="5" fill="#F59E0B"/>
-    <circle cx="68" cy="21" r="5" fill="#10B981"/>
-    <!-- URL Bar -->
-    <rect x="110" y="8" width="460" height="26" rx="6" fill="#090A0D"/>
-    <text x="130" y="25" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="11">https://research.nature.com/articles/ai-advances</text>
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="url(#bgGrad2)"/>
 
-    <!-- Main Web Page Area -->
-    <rect x="25" y="65" width="540" height="415" rx="8" fill="#0E1017"/>
-    <text x="50" y="105" fill="#F5F5F5" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="16">Autonomous Agentic Reasoning Systems</text>
+  <!-- Top Chrome Navigation & Tab Bar -->
+  <rect x="40" y="30" width="1200" height="60" rx="10" fill="#151820" stroke="#ffffff" stroke-opacity="0.08"/>
+  <circle cx="70" cy="60" r="6" fill="#EF4444"/>
+  <circle cx="90" cy="60" r="6" fill="#F59E0B"/>
+  <circle cx="110" cy="60" r="6" fill="#10B981"/>
+  
+  <!-- URL Address Bar -->
+  <rect x="145" y="45" width="620" height="30" rx="6" fill="#090A0D" stroke="#ffffff" stroke-opacity="0.06"/>
+  <circle cx="165" cy="60" r="4" fill="#10B981"/>
+  <text x="180" y="65" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="12">https://arxiv.org/abs/2602.04912 — Autonomous Agentic Frameworks</text>
+
+  <!-- Extension Active Badge -->
+  <rect x="800" y="47" width="220" height="26" rx="13" fill="#FF7900" fill-opacity="0.15" stroke="#FF7900" stroke-opacity="0.4"/>
+  <text x="910" y="64" fill="#FFAA32" font-family="'Space Grotesk', sans-serif" font-weight="600" font-size="11" text-anchor="middle">CHROME MANIFEST V3 ACTIVE</text>
+
+  <rect x="1040" y="47" width="180" height="26" rx="6" fill="#151820" stroke="#ffffff" stroke-opacity="0.1"/>
+  <text x="1130" y="64" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="11" text-anchor="middle">Spring Boot WebClient</text>
+
+  <!-- Main Web Content Split (Left: Webpage with text highlight, Right: Extension Side Panel) -->
+
+  <!-- LEFT PANE: Active Web Article with selected text -->
+  <g transform="translate(40, 110)">
+    <rect width="700" height="570" rx="12" fill="#111319" stroke="#ffffff" stroke-opacity="0.08"/>
     
-    <!-- Highlighted Text Block -->
-    <rect x="50" y="130" width="490" height="75" rx="4" fill="#FF7900" fill-opacity="0.2" stroke="#FF7900" stroke-opacity="0.6"/>
-    <text x="65" y="155" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">"By orchestrating reactive microservices alongside LLM reasoning</text>
-    <text x="65" y="175" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">loops, real-time contextual synthesis achieves unprecedented accuracy."</text>
+    <!-- Header -->
+    <rect width="700" height="50" rx="12" fill="#151820"/>
+    <text x="24" y="32" fill="#F5F5F5" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14">RESEARCH ARTICLE // ACADEMIC PREPRINT</text>
 
-    <text x="50" y="240" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="12">Selected text dispatched via Chrome Runtime to Manifest V3 side panel...</text>
+    <!-- Article Content -->
+    <g transform="translate(30, 80)">
+      <text x="0" y="24" fill="#F5F5F5" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="20">Orchestrating Asynchronous Reactive Microservices with LLMs</text>
+      
+      <text x="0" y="65" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="13">Modern generative AI systems frequently suffer from bottlenecked thread contention when</text>
+      <text x="0" y="90" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="13">making synchronous network calls across third-party inference endpoints.</text>
 
-    <!-- Side Panel Extension Interface -->
-    <rect x="590" y="65" width="305" height="415" rx="8" fill="#1a1e28" stroke="#FF7900" stroke-opacity="0.3"/>
-    
-    <!-- Extension Header -->
-    <rect x="590" y="65" width="305" height="45" rx="8" fill="#151820"/>
-    <text x="615" y="93" fill="#FF7900" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="13">AI RESEARCH ASSISTANT</text>
-    <circle cx="870" cy="88" r="4" fill="#10B981"/>
+      <!-- Selected Highlighted Text -->
+      <g transform="translate(0, 125)">
+        <rect width="640" height="95" rx="6" fill="#FF7900" fill-opacity="0.18" stroke="#FF7900" stroke-opacity="0.6"/>
+        <rect x="10" y="10" width="145" height="20" rx="4" fill="#FF7900"/>
+        <text x="82" y="24" fill="#000000" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="10" text-anchor="middle">SELECTED BY USER</text>
 
-    <!-- Action Pill -->
-    <rect x="610" y="125" width="130" height="30" rx="15" fill="#FF7900" fill-opacity="0.15" stroke="#FF7900" stroke-opacity="0.5"/>
-    <text x="630" y="145" fill="#FFAA32" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="600">SUMMARIZE</text>
+        <text x="15" y="55" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="13" font-weight="500">"By coupling Spring Boot WebClient non-blocking reactive streams with Gemini's API,</text>
+        <text x="15" y="78" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="13" font-weight="500">contextual prompt pipelines achieve sub-second latency while keeping client memory lean."</text>
+      </g>
 
-    <rect x="750" y="125" width="120" height="30" rx="15" fill="#090A0D"/>
-    <text x="775" y="145" fill="#A5A9B2" font-family="'Space Grotesk', sans-serif" font-size="11">SAVE NOTE</text>
+      <text x="0" y="260" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="13">Captured via Chrome runtime messaging from active browser tab.</text>
+      <text x="0" y="285" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="13">Dynamic prompt construction initiates async request to Spring Boot backend controller.</text>
+    </g>
 
-    <!-- AI Summary Box -->
-    <rect x="610" y="175" width="265" height="150" rx="6" fill="#0E1017" stroke="#ffffff" stroke-opacity="0.06"/>
-    <text x="625" y="202" fill="#FFAA32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="11">GEMINI PRO SYNTHESIS:</text>
-    <text x="625" y="225" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="11">1. Decouples front-end UI from AI calls.</text>
-    <text x="625" y="245" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="11">2. Spring Boot WebClient streams async.</text>
-    <text x="625" y="265" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="11">3. Latency reduced by 64% with caching.</text>
-    <text x="625" y="295" fill="#10B981" font-family="'Space Grotesk', sans-serif" font-size="10">✓ Synced to local research notes</text>
+    <g transform="translate(30, 485)">
+      <rect width="640" height="60" rx="8" fill="#151820" stroke="#ffffff" stroke-opacity="0.05"/>
+      <text x="20" y="36" fill="#10B981" font-family="'Inter', sans-serif" font-size="12">✓ Chrome Runtime Listener Dispatched • Status 200 OK</text>
+    </g>
+  </g>
 
-    <!-- Status Bar -->
-    <rect x="610" y="340" width="265" height="40" rx="6" fill="#151820"/>
-    <text x="625" y="365" fill="#A5A9B2" font-family="'Inter', sans-serif" font-size="10">Spring Boot REST API • Status 200 OK</text>
+  <!-- RIGHT PANE: Chrome Extension Side Panel UI -->
+  <g transform="translate(765, 110)">
+    <rect width="475" height="570" rx="12" fill="#111319" stroke="#FF7900" stroke-opacity="0.35"/>
+
+    <!-- Side Panel Header -->
+    <rect width="475" height="50" rx="12" fill="#151820"/>
+    <text x="24" y="32" fill="#FF7900" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="13">RESEARCH ASSISTANT // SIDE PANEL</text>
+    <circle cx="445" cy="27" r="4" fill="#10B981"/>
+
+    <!-- Action Bar -->
+    <g transform="translate(20, 70)">
+      <rect width="135" height="34" rx="17" fill="#FF7900" fill-opacity="0.2" stroke="#FF7900" stroke-opacity="0.6"/>
+      <text x="87" y="92" fill="#FFAA32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="11" text-anchor="middle">SUMMARIZE</text>
+
+      <rect x="150" y="0" width="135" height="34" rx="17" fill="#151820" stroke="#ffffff" stroke-opacity="0.1"/>
+      <text x="217" y="22" fill="#A5A9B2" font-family="'Space Grotesk', sans-serif" font-weight="600" font-size="11" text-anchor="middle">SAVE NOTE</text>
+    </g>
+
+    <!-- AI Output Box -->
+    <g transform="translate(20, 125)">
+      <rect width="435" height="250" rx="8" fill="#151820" stroke="#FF7900" stroke-opacity="0.25"/>
+      <text x="20" y="32" fill="#FFAA32" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="11">GEMINI PRO SYNTHESIS:</text>
+      
+      <circle cx="28" cy="62" r="3" fill="#FF7900"/>
+      <text x="42" y="66" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">1. Eliminates thread blocking via WebClient reactive I/O.</text>
+
+      <circle cx="28" cy="102" r="3" fill="#FF7900"/>
+      <text x="42" y="106" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">2. Dynamic system prompt injection for technical rigor.</text>
+
+      <circle cx="28" cy="142" r="3" fill="#FF7900"/>
+      <text x="42" y="146" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">3. Persists structured takeaways with custom user tags.</text>
+
+      <circle cx="28" cy="182" r="3" fill="#FF7900"/>
+      <text x="42" y="186" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">4. Seamless side-panel integration via Manifest V3.</text>
+
+      <rect x="20" y="208" width="395" height="28" rx="4" fill="#090A0D"/>
+      <text x="35" y="226" fill="#10B981" font-family="'Space Grotesk', sans-serif" font-size="11">✓ Note synchronized to local storage</text>
+    </g>
+
+    <!-- Backend Spec -->
+    <g transform="translate(20, 395)">
+      <rect width="435" height="150" rx="8" fill="#090A0D" stroke="#ffffff" stroke-opacity="0.06"/>
+      <text x="20" y="30" fill="#A5A9B2" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="11">SYSTEM STACK SPECIFICATIONS</text>
+      
+      <text x="20" y="65" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">• Runtime: Chrome Extension Manifest V3</text>
+      <text x="20" y="92" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">• Backend: Spring Boot Reactive REST API</text>
+      <text x="20" y="119" fill="#F5F5F5" font-family="'Inter', sans-serif" font-size="12">• Client: WebClient Non-Blocking HTTP Client</text>
+    </g>
   </g>
 </svg>
-

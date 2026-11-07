@@ -27,7 +27,7 @@ export const ProjectSection = () => {
         </div>
 
         {/* Project Cards List */}
-        <div className="space-y-12">
+        <div className="space-y-12 sm:space-y-16">
           {visibleProjects.map((project, idx) => (
             <ProjectCard key={project.id} project={project} index={idx} />
           ))}
