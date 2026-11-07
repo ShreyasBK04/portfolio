@@ -21,30 +21,31 @@ export const experiences = [
     technologies: ["Java", "Spring Boot", "React.js", "REST APIs", "Git", "GitHub", "Testing"],
     featured: true,
     visible: true
-  }
-];
-
-/**
- * Technical Training & Skill Development Internship
- * Sourced directly from resume (KodNest).
- */
-export const trainings = [
+  },
   {
-    id: 1,
-    institution: "KodNest",
+    id: 2,
     company: "KodNest",
+    institution: "KodNest",
     role: "Full Stack Developer Internship",
     type: "Internship / Training",
     duration: "June 2026 – Present",
     status: "In Progress",
+    location: "Bangalore, India",
     description: "Undergoing Java Full Stack Development training to strengthen programming and application development skills.",
-    syllabus: [
+    responsibilities: [
       "Completed Core Java concepts, including OOP, Exception Handling and Multithreading.",
       "Completed SQL fundamentals.",
       "Learned Git and GitHub for version control and source code management.",
       "Currently undergoing Java Full Stack Development training."
     ],
     technologies: ["Core Java", "OOP", "Exception Handling", "Multithreading", "SQL", "Git", "GitHub"],
+    featured: false,
     visible: true
   }
 ];
+
+/**
+ * Technical Training & Skill Development
+ * Merged into experiences timeline above for cohesive career storytelling.
+ */
+export const trainings = [];
