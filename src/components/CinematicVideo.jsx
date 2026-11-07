@@ -83,9 +83,10 @@ export const CinematicVideo = () => {
           className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.05]"
         />
         
-        {/* Cinematic Vignette & Edge Shadowing */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#090A0D] via-transparent to-[#090A0D]/75 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#090A0D]/85 via-transparent to-[#090A0D]/85 pointer-events-none" />
+        {/* Cinematic Vignette, Left Text Backdrop & Edge Shadowing */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#090A0D] via-transparent to-[#090A0D]/85 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#090A0D]/95 via-[#090A0D]/70 sm:via-[#090A0D]/60 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-radial-gradient pointer-events-none opacity-40" />
       </div>
 
       {/* Top Narrative Pillar Pill */}

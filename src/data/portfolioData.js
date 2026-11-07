@@ -6,7 +6,7 @@ export const portfolioData = {
   name: "Shreyas B K",
   brand: "SBK.",
   portfolioTitle: "THE HUMAN BEHIND THE CODE",
-  professionalTitle: "Full Stack Developer | AI Enthusiast",
+  professionalTitle: "Full Stack Developer",
   location: "Bangalore, India",
   phone: "+91 9110837499",
   heroSubtitle: "Creative Engineering • Intelligent Systems • Modern Architecture",

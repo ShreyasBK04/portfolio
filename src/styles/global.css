@@ -47,6 +47,11 @@ html, body {
   scroll-behavior: smooth;
 }
 
+/* Ensure sections navigate smoothly below the fixed sticky navbar */
+section[id], div[id="hero"] {
+  scroll-margin-top: 5.5rem;
+}
+
 /* Cinematic film grain / noise overlay - ultra subtle */
 .film-grain {
   position: fixed;
