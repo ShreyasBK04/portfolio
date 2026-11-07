@@ -22,8 +22,8 @@ export const socialLinks = [
   {
     name: "GitHub",
     label: "GitHub Profile",
-    url: "https://github.com/shreyasbk", // Update with your exact GitHub username if different
-    handle: "github.com/shreyasbk",
+    url: "https://github.com/ShreyasBK04",
+    handle: "github.com/ShreyasBK04",
     icon: "Github",
     visible: true
   },
