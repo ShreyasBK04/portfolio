@@ -1,75 +1,16 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { educationList } from '../data/education';
 import { certificates } from '../data/certificates';
 import { Award, CheckCircle, GraduationCap, School } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const EducationSection = () => {
-  const sectionRef = useRef(null);
-  const eduContainerRef = useRef(null);
-  const certContainerRef = useRef(null);
-
   const visibleEducation = educationList.filter((e) => e.visible !== false);
   const visibleCertificates = certificates.filter((c) => c.visible !== false);
 
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
-
-    const ctx = gsap.context(() => {
-      // Normal vertical scrolling with subtle scroll-triggered reveals
-      if (eduContainerRef.current) {
-        const eduCards = eduContainerRef.current.children;
-        Array.from(eduCards).forEach((card, idx) => {
-          gsap.fromTo(
-            card,
-            { opacity: 0, y: 28 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              delay: idx * 0.12,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: card,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse',
-              }
-            }
-          );
-        });
-      }
-
-      if (certContainerRef.current) {
-        gsap.fromTo(
-          certContainerRef.current,
-          { opacity: 0, y: 32 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.85,
-            delay: 0.2,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: certContainerRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            }
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, [visibleEducation.length, visibleCertificates.length]);
-
   return (
-    <section id="education" ref={sectionRef} className="editorial-section relative py-20 sm:py-28 bg-[#090A0D]">
+    <section id="education" className="editorial-section relative py-20 sm:py-28 bg-[#090A0D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 border-b border-white/10 pb-6">
           <div>
@@ -88,13 +29,13 @@ export const EducationSection = () => {
 
         {/* Education & Certificates Editorial Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
+
           {/* Main Education Cards Column (Spans 2 columns) */}
-          <div ref={eduContainerRef} className="lg:col-span-2 space-y-8">
+          <div className="lg:col-span-2 space-y-8">
             {visibleEducation.map((edu) => (
               <div
                 key={edu.id}
-                className="bg-bg-card rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-accent/40 transition-all duration-300 relative group flex flex-col justify-between hover:shadow-glow-sm"
+                className="bg-bg-card rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-accent/40 transition-all duration-300 relative group flex flex-col justify-between"
               >
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
@@ -150,10 +91,7 @@ export const EducationSection = () => {
           </div>
 
           {/* Side Column: Certifications */}
-          <div
-            ref={certContainerRef}
-            className="bg-[#111319] rounded-2xl p-6 sm:p-8 border border-white/10 flex flex-col justify-between hover:shadow-glow-sm transition-all duration-300"
-          >
+          <div className="bg-[#111319] rounded-2xl p-6 sm:p-8 border border-white/10 flex flex-col justify-between">
             <div>
               <div className="flex items-center space-x-2 text-accent text-xs font-mono uppercase tracking-wider mb-4">
                 <Award className="w-4 h-4" />
@@ -190,9 +128,6 @@ export const EducationSection = () => {
               </div>
             </div>
 
-            <div className="mt-8 pt-4 border-t border-white/5 text-[11px] font-mono text-content-muted">
-              Source: Official Resume Verified
-            </div>
           </div>
 
         </div>

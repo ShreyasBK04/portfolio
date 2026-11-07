@@ -5,10 +5,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 /**
  * Creates smooth parallax and border pulse transitions for sections.
- * Excludes pinned sections to avoid conflicting ScrollTrigger properties.
  */
 export const initSectionTransitions = () => {
-  const sections = document.querySelectorAll('.editorial-section:not([data-pinned="true"])');
+  const sections = document.querySelectorAll('.editorial-section');
   sections.forEach((sec) => {
     gsap.fromTo(
       sec,

@@ -75,7 +75,6 @@ export const ProjectSection = () => {
     <section
       id="projects"
       ref={sectionRef}
-      data-pinned="true"
       className="editorial-section relative bg-[#090A0D] overflow-hidden select-none"
     >
       {/* DESKTOP PINNED HORIZONTAL SHOWCASE (>= 1024px) */}

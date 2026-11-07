@@ -1,48 +1,14 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { Flame, ArrowRight } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import { Sparkles, Trophy, ArrowRight, ShieldCheck, Flame } from 'lucide-react';
 
 export const VictorySection = () => {
-  const sectionRef = useRef(null);
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
-
-    const ctx = gsap.context(() => {
-      if (contentRef.current) {
-        gsap.fromTo(
-          contentRef.current,
-          { opacity: 0, y: 35 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: contentRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            }
-          }
-        );
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section id="victory" ref={sectionRef} className="editorial-section relative py-24 sm:py-36 bg-[#090A0D] overflow-hidden">
+    <section id="victory" className="editorial-section relative py-24 sm:py-36 bg-[#090A0D] overflow-hidden">
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-[140px] pointer-events-none" />
 
-      <div ref={contentRef} className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         
         {/* Eyebrow */}
         <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#151820] border border-accent/30 mb-8 backdrop-blur-md">
@@ -93,3 +59,4 @@ export const VictorySection = () => {
     </section>
   );
 };
+

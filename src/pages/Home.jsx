@@ -11,22 +11,11 @@ import { ContactSection } from '../components/ContactSection';
 import { Footer } from '../components/Footer';
 import { initEditorialReveals } from '../animations/scrollTimeline';
 import { initSectionTransitions } from '../animations/sectionTransitions';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const Home = () => {
   useEffect(() => {
     initSectionTransitions();
     initEditorialReveals(document.body);
-
-    // Refresh ScrollTrigger calculations after initial mount and layout settlement
-    const timer = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 250);
-
-    return () => clearTimeout(timer);
   }, []);
 
   return (

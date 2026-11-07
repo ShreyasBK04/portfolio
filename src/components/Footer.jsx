@@ -10,7 +10,7 @@ export const Footer = () => {
   return (
     <footer className="w-full bg-[#090A0D] border-t border-white/10 py-10 px-4 sm:px-6 lg:px-8 select-none">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-        
+
         {/* Brand & Creator Credit */}
         <div className="flex items-center space-x-3 text-center sm:text-left">
           <div className="w-8 h-8 rounded-lg bg-bg-card border border-white/10 flex items-center justify-center">
