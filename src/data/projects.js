@@ -29,7 +29,7 @@ export const projects = [
       "Gemini API"
     ],
     image: "/images/projects/contractiq.svg",
-    githubUrl: "", // e.g. "https://github.com/shreyasbk/ContractIQ"
+    githubUrl: "https://github.com/ShreyasBK04/ContractIQ-AI-Powered-Contract-Risk-Analyzer",
     liveUrl: "",   // e.g. "https://contractiq-demo.vercel.app"
     featured: true,
     visible: true
@@ -53,7 +53,7 @@ export const projects = [
       "Gemini API"
     ],
     image: "/images/projects/research-assistant.svg",
-    githubUrl: "", // e.g. "https://github.com/shreyasbk/ai-research-assistant"
+    githubUrl: "https://github.com/ShreyasBK04/Smart-AI-Research-Assistant",
     liveUrl: "",   // e.g. "https://chrome.google.com/webstore/..."
     featured: true,
     visible: true

@@ -132,7 +132,7 @@ export const ProjectCard = ({ project, index = 0, isHorizontal = false, isActive
       </div>
 
       {/* Main 2-Column Presentation: Large Screenshot Preview on Left, Details on Right */}
-      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 xl:gap-10 items-stretch flex-1 overflow-hidden py-1">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 xl:gap-10 items-stretch flex-1 min-h-0 py-1">
         
         {/* LEFT COLUMN: Large High-Visibility Application Screenshot */}
         <div className="w-full lg:w-[48%] flex flex-col justify-center shrink-0">
@@ -155,8 +155,8 @@ export const ProjectCard = ({ project, index = 0, isHorizontal = false, isActive
         </div>
 
         {/* RIGHT COLUMN: Project Information & Specs */}
-        <div className="w-full lg:w-[52%] flex flex-col justify-between h-full space-y-3 overflow-hidden">
-          <div className="space-y-2.5 overflow-hidden">
+        <div className="w-full lg:w-[52%] flex flex-col justify-between min-h-0 space-y-3">
+          <div className="space-y-2.5 overflow-y-auto no-scrollbar pr-0.5">
             {/* Title — Unconstrained wrapping, bold Space Grotesk */}
             <h3 className="text-xl sm:text-2xl xl:text-3xl font-extrabold font-display text-white tracking-tight leading-snug group-hover:text-gradient-orange transition-colors">
               {project.title}
@@ -191,7 +191,7 @@ export const ProjectCard = ({ project, index = 0, isHorizontal = false, isActive
           </div>
 
           {/* Bottom Area: Technology Tags & Links */}
-          <div className="pt-2 border-t border-white/10 shrink-0">
+          <div className="pt-2 border-t border-white/10 shrink-0 mt-auto">
             {/* Technology Tags */}
             <div className="flex flex-wrap gap-1.5 mb-3">
               {project.technologies.map((tech, idx) => (
@@ -204,38 +204,36 @@ export const ProjectCard = ({ project, index = 0, isHorizontal = false, isActive
               ))}
             </div>
 
-            {/* Action Links — GitHub (Dark Outlined) & Live Demo (Solid Orange) */}
-            {(Boolean(project.githubUrl && project.githubUrl.trim() !== '') || Boolean(project.liveUrl && project.liveUrl.trim() !== '')) && (
-              <div className="flex flex-wrap items-center gap-3 pt-1">
-                {/* 1. GitHub Repository: Dark outlined button */}
-                {project.githubUrl && project.githubUrl.trim() !== '' && (
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-[#151820]/90 hover:bg-[#1A1F2C] border border-white/20 hover:border-accent text-white hover:text-accent text-xs font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow-sm active:translate-y-0"
-                    aria-label={`View GitHub repository for ${project.title}`}
-                  >
-                    <GithubIcon className="w-3.5 h-3.5 text-accent transition-transform duration-200 group-hover:scale-110" />
-                    <span>GitHub Repository</span>
-                  </a>
-                )}
+            {/* Exactly ONE Action Button Container */}
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              {/* 1. GitHub Repository: dark background, subtle border, GitHub icon */}
+              {project.githubUrl && project.githubUrl.trim() !== '' && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-[#151820] hover:bg-[#1C202B] border border-white/15 hover:border-accent text-white hover:text-accent text-xs font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow-sm active:translate-y-0"
+                  aria-label={`View GitHub repository for ${project.title}`}
+                >
+                  <GithubIcon className="w-3.5 h-3.5 text-accent" />
+                  <span>GitHub Repository</span>
+                </a>
+              )}
 
-                {/* 2. Live Demo: Vibrant orange button */}
-                {project.liveUrl && project.liveUrl.trim() !== '' && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-accent hover:bg-[#FFAA32] border border-accent hover:border-[#FFAA32] text-[#090A0D] text-xs font-bold font-display uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow active:translate-y-0"
-                    aria-label={`Open live demo for ${project.title}`}
-                  >
-                    <span>Live Demo</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-[#090A0D] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </a>
-                )}
-              </div>
-            )}
+              {/* 2. Live Demo: solid orange background, dark text, external-link icon */}
+              {project.liveUrl && project.liveUrl.trim() !== '' && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-accent hover:bg-[#FFAA32] border border-accent hover:border-[#FFAA32] text-[#090A0D] text-xs font-bold font-display uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow active:translate-y-0"
+                  aria-label={`Open live demo for ${project.title}`}
+                >
+                  <span>Live Demo</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#090A0D]" />
+                </a>
+              )}
+            </div>
           </div>
 
         </div>
