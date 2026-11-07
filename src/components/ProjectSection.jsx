@@ -27,9 +27,9 @@ export const ProjectSection = () => {
         const section = sectionRef.current;
         if (!track || !section) return;
 
-        // Dynamic horizontal travel distance based on total track width vs viewport
+        // Dynamic horizontal travel distance: spans the full width of cards, offsets, and previews
         const calculateDistance = () => {
-          return track.scrollWidth - window.innerWidth + 140;
+          return track.scrollWidth - window.innerWidth + window.innerWidth * 0.14;
         };
 
         const tween = gsap.to(track, {
@@ -38,7 +38,7 @@ export const ProjectSection = () => {
           scrollTrigger: {
             trigger: section,
             pin: true,
-            scrub: 1, // Smooth, responsive scrubbing
+            scrub: 1, // Smooth, cinematic response
             start: "top top",
             end: () => `+=${calculateDistance()}`,
             invalidateOnRefresh: true,
@@ -47,13 +47,13 @@ export const ProjectSection = () => {
               const currentProgress = self.progress;
               setProgress(currentProgress);
               
-              // Map progress smoothly across active projects
+              // Map scroll progress smoothly across project cards
               const totalItems = visibleProjects.length;
               if (totalItems > 0) {
                 const segment = 1 / totalItems;
                 const activeIdx = Math.min(
                   totalItems - 1,
-                  Math.floor(currentProgress / segment)
+                  Math.floor(currentProgress / segment + 0.1)
                 );
                 setActiveProjectIndex(activeIdx);
               }
@@ -78,16 +78,16 @@ export const ProjectSection = () => {
       className="editorial-section relative bg-[#090A0D] overflow-hidden select-none"
     >
       {/* DESKTOP PINNED HORIZONTAL SHOWCASE (>= 1024px) */}
-      <div className="hidden lg:flex flex-col justify-between w-full h-screen pt-24 xl:pt-28 pb-8 px-8 xl:px-14 relative overflow-hidden">
+      <div className="hidden lg:flex flex-col justify-between w-full h-screen pt-20 lg:pt-24 pb-6 px-6 xl:px-12 relative overflow-hidden">
         
-        {/* Top Header & Navigation Deck — Positioned cleanly below the fixed navbar */}
-        <div className="w-full flex items-center justify-between border-b border-white/10 pb-4 relative z-20 shrink-0">
+        {/* Top Header & Navigation Deck — Positioned safely below the fixed navbar */}
+        <div className="w-full flex items-center justify-between border-b border-white/10 pb-3 relative z-20 shrink-0">
           <div>
             <div className="inline-flex items-center space-x-2 text-xs font-mono text-accent tracking-widest uppercase">
               <Layers className="w-4 h-4" />
               <span>SCENE 04 // APPLIED ENGINEERING SHOWCASE</span>
             </div>
-            <h2 className="text-2xl xl:text-4xl font-extrabold font-display text-white tracking-tight mt-1">
+            <h2 className="text-2xl xl:text-3xl font-extrabold font-display text-white tracking-tight mt-1">
               Featured <span className="text-gradient-orange">Projects.</span>
             </h2>
           </div>
@@ -95,7 +95,7 @@ export const ProjectSection = () => {
           {/* Project Counter & Horizontal Progress Bar */}
           <div className="flex items-center space-x-6">
             <div className="text-right">
-              <span className="text-[11px] font-mono text-content-muted block">CASE STUDY</span>
+              <span className="text-[10px] font-mono text-content-muted block uppercase">ACTIVE CASE STUDY</span>
               <div className="text-sm font-mono text-white transition-all duration-300">
                 <span className="text-accent font-bold text-base">
                   {String(activeProjectIndex + 1).padStart(2, '0')}
@@ -106,14 +106,14 @@ export const ProjectSection = () => {
             </div>
 
             {/* Scrub Progress Bar */}
-            <div className="w-36 xl:w-52 h-1.5 bg-white/10 rounded-full overflow-hidden relative">
+            <div className="w-36 xl:w-48 h-1.5 bg-white/10 rounded-full overflow-hidden relative">
               <div
                 className="absolute top-0 bottom-0 left-0 bg-gradient-to-r from-accent to-[#FFAA32] rounded-full transition-all duration-100"
                 style={{ width: `${Math.min(100, Math.max(5, progress * 100))}%` }}
               />
             </div>
 
-            {/* Scroll Direction Indicator */}
+            {/* Scroll Indicator */}
             <div className="flex items-center space-x-1.5 text-xs font-mono text-content-secondary bg-[#151820] px-3 py-1.5 rounded-lg border border-white/10">
               <span>Scroll to Pan</span>
               <MoveRight className="w-3.5 h-3.5 text-accent animate-pulse" />
@@ -121,13 +121,13 @@ export const ProjectSection = () => {
           </div>
         </div>
 
-        {/* Dynamic Horizontal Scrolling Track — Vertically Centered in Available Viewport */}
+        {/* Dynamic Horizontal Scrolling Track — Vertically Centered with generous left spacing and preview on right */}
         <div className="relative w-full flex-1 flex items-center overflow-hidden my-auto py-2">
           <div
             ref={trackRef}
-            className="flex items-center space-x-8 xl:space-x-12 pl-2 pr-32 will-change-transform"
+            className="flex items-center space-x-8 xl:space-x-12 pl-[10vw] xl:pl-[12vw] pr-[20vw] will-change-transform"
           >
-            {/* Dynamic Project Cards — Project 01 starts in focus with Project 02 peeked on the right */}
+            {/* Project Cards: Card 01 starts centered; Card 02 peeks on the right */}
             {visibleProjects.map((project, idx) => (
               <ProjectCard
                 key={project.id}
@@ -138,10 +138,10 @@ export const ProjectSection = () => {
               />
             ))}
 
-            {/* Outro Transition Card leading smoothly into Skills Section */}
-            <div className="w-[300px] xl:w-[340px] shrink-0 p-7 xl:p-8 rounded-2xl bg-gradient-to-br from-[#151820] to-[#0E1017] border border-accent/30 flex flex-col justify-between max-h-[calc(100vh-220px)] h-[380px] shadow-glow-sm">
+            {/* Seamless Outro Transition into Scene 05 (Skills Section) */}
+            <div className="w-[300px] xl:w-[340px] shrink-0 p-7 xl:p-8 rounded-2xl bg-gradient-to-br from-[#151820] to-[#0E1017] border border-accent/30 flex flex-col justify-between lg:h-[calc(100vh-200px)] max-h-[660px] shadow-glow-sm">
               <div>
-                <span className="text-xs font-mono text-accent uppercase tracking-widest block mb-2">
+                <span className="text-xs font-mono text-accent uppercase tracking-widest block mb-2 font-semibold">
                   NEXT CHAPTER // 05
                 </span>
                 <h4 className="text-xl xl:text-2xl font-bold font-display text-white tracking-tight leading-snug">
@@ -154,7 +154,7 @@ export const ProjectSection = () => {
 
               <a
                 href="#skills"
-                className="inline-flex items-center justify-between w-full p-3 rounded-lg bg-accent hover:bg-[#FFAA32] text-black text-xs font-bold font-display uppercase tracking-wider transition-colors"
+                className="inline-flex items-center justify-between w-full p-3.5 rounded-lg bg-accent hover:bg-[#FFAA32] text-black text-xs font-bold font-display uppercase tracking-wider transition-colors"
               >
                 <span>View Skills Matrix</span>
                 <ArrowRight className="w-4 h-4" />
