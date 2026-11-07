@@ -99,7 +99,7 @@ export const ProjectCard = ({ project, index = 0, isHorizontal = false, isActive
   return (
     <article
       tabIndex={0}
-      aria-label={`${project.title} case study`}
+      aria-label={`${project.title} project`}
       className={`relative group bg-bg-card rounded-2xl border transition-all duration-500 hover:shadow-glow-sm focus:outline-none focus:border-accent select-none flex flex-col justify-between ${
         isActive
           ? 'border-accent/60 shadow-glow-sm ring-1 ring-accent/30'
@@ -125,7 +125,7 @@ export const ProjectCard = ({ project, index = 0, isHorizontal = false, isActive
           <div className="flex items-center space-x-1.5 px-3 py-1 rounded-full bg-[#090A0D] border border-accent/40 backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-accent" />
             <span className="text-[11px] font-bold text-accent font-display uppercase tracking-wider">
-              Featured Case Study
+              Featured Project
             </span>
           </div>
         )}

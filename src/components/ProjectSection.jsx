@@ -95,7 +95,7 @@ export const ProjectSection = () => {
           {/* Project Counter & Horizontal Progress Bar */}
           <div className="flex items-center space-x-6">
             <div className="text-right">
-              <span className="text-[10px] font-mono text-content-muted block uppercase">ACTIVE CASE STUDY</span>
+              <span className="text-[10px] font-mono text-content-muted block uppercase">ACTIVE PROJECT</span>
               <div className="text-sm font-mono text-white transition-all duration-300">
                 <span className="text-accent font-bold text-base">
                   {String(activeProjectIndex + 1).padStart(2, '0')}
