@@ -1,7 +1,7 @@
 /**
  * Professional Work Experience & Internships
- * Add, update, or hide employment records here.
- * Set visible: false to temporarily hide any entry.
+ * Sourced directly from resume.
+ * Add, update, or hide records here.
  */
 export const experiences = [
   {
@@ -9,14 +9,14 @@ export const experiences = [
     company: "Invayas Technologies Pvt. Ltd.",
     role: "Full Stack Developer Intern",
     type: "Internship",
-    duration: "Feb 2026 – May 2026",
-    location: "On-site / Hybrid",
-    description: "Developed and maintained full-stack web applications with high reliability, security, and responsive UX.",
+    duration: "February 2026 – May 2026",
+    location: "Karnataka, India",
+    description: "Developed and maintained full-stack web applications with responsive user interfaces, backend services and REST API integration.",
     responsibilities: [
-      "Developed and maintained full-stack web applications adhering to clean architecture standards.",
-      "Worked with responsive user interfaces and robust backend microservices.",
-      "Integrated secure REST APIs and validated data pipelines.",
-      "Gained practical experience with authentication, unit/integration testing, Git/GitHub workflows, and deployment pipelines."
+      "Developed and maintained full-stack web applications with responsive user interfaces.",
+      "Worked with backend services and REST API integration.",
+      "Gained practical experience with authentication and testing.",
+      "Used Git/GitHub and application deployment workflows."
     ],
     technologies: ["Java", "Spring Boot", "React.js", "REST APIs", "Git", "GitHub", "Testing"],
     featured: true,
@@ -25,27 +25,26 @@ export const experiences = [
 ];
 
 /**
- * Technical Training & Skill Development Programs
- * Clearly separated from commercial employment.
+ * Technical Training & Skill Development Internship
+ * Sourced directly from resume (KodNest).
  */
 export const trainings = [
   {
     id: 1,
     institution: "KodNest",
-    role: "Full Stack Developer Training",
-    type: "Professional Training",
-    duration: "Jun 2026 – Present",
+    company: "KodNest",
+    role: "Full Stack Developer Internship",
+    type: "Internship / Training",
+    duration: "June 2026 – Present",
     status: "In Progress",
-    description: "Intensive Java Full Stack Developer training curriculum focusing on enterprise-grade software fundamentals.",
+    description: "Undergoing Java Full Stack Development training to strengthen programming and application development skills.",
     syllabus: [
-      "Core Java & Deep Object-Oriented Programming (OOP)",
-      "Robust Exception Handling and High-Concurrency Multithreading",
-      "Relational SQL Fundamentals, Schemas, and Complex Query Optimization",
-      "Version Control Best Practices with Git and GitHub",
-      "End-to-End Java Full Stack Development Architecture"
+      "Completed Core Java concepts, including OOP, Exception Handling and Multithreading.",
+      "Completed SQL fundamentals.",
+      "Learned Git and GitHub for version control and source code management.",
+      "Currently undergoing Java Full Stack Development training."
     ],
-    technologies: ["Java", "OOP", "Multithreading", "SQL", "Git", "GitHub"],
+    technologies: ["Core Java", "OOP", "Exception Handling", "Multithreading", "SQL", "Git", "GitHub"],
     visible: true
   }
 ];
-

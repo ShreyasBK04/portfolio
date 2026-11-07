@@ -16,11 +16,11 @@ export const ExperienceCard = ({ experience, isTraining = false }) => {
             <span
               className={`px-3 py-1 rounded-full text-xs font-semibold tracking-wider uppercase font-display border ${
                 isTraining
-                  ? 'bg-blue-500/10 text-blue-400 border-blue-500/30'
+                  ? 'bg-amber-500/10 text-[#FFAA32] border-amber-500/30'
                   : 'bg-accent/10 text-accent border-accent/30'
               }`}
             >
-              {isTraining ? 'Professional Training' : experience.type || 'Commercial Experience'}
+              {experience.type || (isTraining ? 'Internship / Training' : 'Internship')}
             </span>
             {experience.status && (
               <span className="text-[11px] font-mono text-[#FFAA32] bg-white/5 px-2 py-0.5 rounded">

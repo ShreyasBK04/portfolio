@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { portfolioData } from '../data/portfolioData';
 import { socialLinks } from '../data/socialLinks';
-import { Mail, Code2, FileText, Check, Copy, ArrowUpRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Code2, FileText, Check, Copy, ArrowUpRight } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, LeetCodeIcon } from './Icons';
 
 const iconMap = {
@@ -39,19 +39,38 @@ export const ContactSection = () => {
             {portfolioData.contact.subheading}
           </p>
 
-          {/* Quick Copy Email Banner */}
-          <div className="mt-8 inline-flex items-center space-x-3 p-2 pl-4 rounded-xl bg-bg-card border border-white/10 hover:border-accent/40 transition-colors">
-            <Mail className="w-4 h-4 text-accent" />
-            <span className="text-xs sm:text-sm font-mono text-white select-all">
-              {portfolioData.contact.email}
-            </span>
-            <button
-              onClick={copyEmail}
-              className="px-3 py-1.5 rounded-lg bg-[#090A0D] border border-white/10 hover:border-accent text-xs font-mono text-content-secondary hover:text-white transition-all flex items-center space-x-1"
-            >
-              {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
-              <span>{copied ? 'Copied' : 'Copy'}</span>
-            </button>
+          {/* Direct Contact Info */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <div className="inline-flex items-center space-x-3 p-2 pl-4 rounded-xl bg-bg-card border border-white/10 hover:border-accent/40 transition-colors">
+              <Mail className="w-4 h-4 text-accent" />
+              <span className="text-xs sm:text-sm font-mono text-white select-all">
+                {portfolioData.contact.email}
+              </span>
+              <button
+                onClick={copyEmail}
+                className="px-3 py-1.5 rounded-lg bg-[#090A0D] border border-white/10 hover:border-accent text-xs font-mono text-content-secondary hover:text-white transition-all flex items-center space-x-1"
+              >
+                {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copied ? 'Copied' : 'Copy'}</span>
+              </button>
+            </div>
+
+            {portfolioData.contact.phone && (
+              <a
+                href={`tel:${portfolioData.contact.phone.replace(/\s+/g, '')}`}
+                className="inline-flex items-center space-x-2 py-2.5 px-4 rounded-xl bg-bg-card border border-white/10 hover:border-accent/40 text-xs sm:text-sm font-mono text-white transition-colors"
+              >
+                <Phone className="w-4 h-4 text-accent" />
+                <span>{portfolioData.contact.phone}</span>
+              </a>
+            )}
+
+            {portfolioData.contact.location && (
+              <div className="inline-flex items-center space-x-2 py-2.5 px-4 rounded-xl bg-bg-card border border-white/10 text-xs sm:text-sm font-mono text-content-secondary">
+                <MapPin className="w-4 h-4 text-accent/70" />
+                <span>{portfolioData.contact.location}</span>
+              </div>
+            )}
           </div>
         </div>
 

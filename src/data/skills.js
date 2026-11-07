@@ -1,69 +1,53 @@
 /**
  * Technical Skills Inventory
+ * Sourced directly from resume.
  * Categorized technology lists without fake percentage bars.
- * Edit categories or skills as your toolkit expands.
  */
 export const skillCategories = [
   {
     id: "languages",
-    title: "Programming Languages",
-    subtitle: "Core languages for systems, logic, and dynamic client/server apps",
+    title: "Languages",
+    subtitle: "Core programming and scripting languages",
     skills: [
       { name: "Java", level: "Primary", highlight: true },
       { name: "JavaScript", level: "Primary", highlight: true },
-      { name: "Python", level: "Proficient", highlight: false },
-      { name: "C", level: "Foundational", highlight: false }
+      { name: "Python", level: "Proficient", highlight: true }
     ],
     visible: true
   },
   {
     id: "backend",
-    title: "Backend & Architecture",
-    subtitle: "Enterprise-grade microservices, ORM, and secure API gateways",
+    title: "Backend & Database",
+    subtitle: "Enterprise backend frameworks, ORM, APIs, and relational databases",
     skills: [
-      { name: "Spring Boot", level: "Enterprise", highlight: true },
-      { name: "Spring Security", level: "Security", highlight: true },
+      { name: "Spring Boot", level: "Framework", highlight: true },
+      { name: "Hibernate", level: "ORM", highlight: true },
       { name: "REST APIs", level: "Architecture", highlight: true },
-      { name: "Hibernate", level: "ORM", highlight: false },
-      { name: "JPA", level: "Persistence", highlight: false }
+      { name: "MySQL", level: "Relational DB", highlight: true }
     ],
     visible: true
   },
   {
     id: "frontend",
-    title: "Frontend Engineering",
-    subtitle: "Modern, responsive, component-driven user interfaces",
+    title: "Frontend",
+    subtitle: "Modern, responsive web client technologies",
     skills: [
-      { name: "React.js", level: "SPA Framework", highlight: true },
-      { name: "HTML5", level: "Semantic Markup", highlight: false },
-      { name: "CSS3", level: "Styling & Flex/Grid", highlight: false },
-      { name: "Tailwind CSS", level: "Modern Utility", highlight: true }
-    ],
-    visible: true
-  },
-  {
-    id: "database",
-    title: "Databases & Storage",
-    subtitle: "Relational schema design, normalization, and performant querying",
-    skills: [
-      { name: "MySQL", level: "Relational", highlight: true },
-      { name: "PostgreSQL", level: "Object-Relational", highlight: true }
+      { name: "React.js", level: "UI Library", highlight: true },
+      { name: "HTML5", level: "Markup", highlight: false },
+      { name: "CSS3", level: "Styling", highlight: false }
     ],
     visible: true
   },
   {
     id: "tools",
-    title: "Tools & DevOps",
-    subtitle: "Developer workflows, version control, and containerization",
+    title: "Testing & Tools",
+    subtitle: "Testing frameworks, API development, and version control",
     skills: [
+      { name: "JUnit 5", level: "Testing", highlight: true },
+      { name: "Postman", level: "API Testing", highlight: true },
       { name: "Git", level: "Version Control", highlight: true },
-      { name: "GitHub", level: "Collaboration & CI", highlight: true },
-      { name: "Docker", level: "Containers", highlight: true },
-      { name: "Postman", level: "API Testing", highlight: false },
-      { name: "IntelliJ IDEA", level: "Java IDE", highlight: false },
-      { name: "VS Code", level: "Editor", highlight: false }
+      { name: "GitHub", level: "Collaboration", highlight: true }
     ],
     visible: true
   }
 ];
-

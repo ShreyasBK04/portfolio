@@ -34,7 +34,7 @@ export const SkillsSection = () => {
         </div>
 
         {/* Skill Category Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {visibleCategories.map((category) => {
             const IconComponent = categoryIcons[category.id] || Terminal;
 

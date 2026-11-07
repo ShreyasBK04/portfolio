@@ -22,8 +22,8 @@ export const TrainingSection = () => {
             <h2 className="text-2xl sm:text-4xl font-extrabold font-display text-white tracking-tight">
               Training &amp; <span className="text-[#FFAA32]">Technical Development.</span>
             </h2>
-            <div className="mt-2 inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded text-[11px] font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20">
-              <span>Notice: Structured professional training curriculum (non-commercial employment)</span>
+            <div className="mt-2 inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded text-[11px] font-mono bg-amber-500/10 text-[#FFAA32] border border-amber-500/20">
+              <span>Full Stack Developer Internship &amp; Technical Training</span>
             </div>
           </div>
           <p className="mt-4 md:mt-0 text-sm text-content-secondary max-w-md font-body">

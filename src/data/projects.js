@@ -1,5 +1,6 @@
 /**
  * Projects Showcase
+ * Single source of truth from resume.
  * Add or edit projects here.
  * Set githubUrl or liveUrl to null or empty string if not available yet;
  * the UI will automatically omit the button without breaking.
@@ -7,46 +8,40 @@
 export const projects = [
   {
     id: 1,
-    title: "ContractIQ — AI Powered Legal Contract Analyzer",
-    tagline: "Enterprise Legal Tech & Clause Risk Intelligence",
+    title: "ContractIQ – AI Powered Legal Contract Analyzer",
+    tagline: "Legal Tech & AI Clause Risk Analysis",
     category: "Full Stack & AI",
-    description: "An intelligent legal document analysis platform that ingests complex PDF contracts, extracts clauses, detects potential legal liabilities, and delivers instant AI risk assessments with comprehensive reporting.",
+    description: "Full-stack application built with React, Spring Boot and PostgreSQL, integrating Gemini API for automated legal clause risk analysis and PDF text extraction.",
     features: [
-      "AI-powered deep contract clause analysis and risk breakdown",
-      "Fast PDF text extraction and document parsing pipeline",
-      "Automated legal clause classification and ambiguity detection",
-      "AI-generated risk assessments with actionable mitigation advice",
-      "Role-based authentication, JWT security, and protected Spring Boot REST APIs"
+      "Integrated the Google Gemini API with a Spring Boot backend to analyze legal contract clauses and generate AI-based risk assessments.",
+      "Implemented PDF text extraction and processing to prepare contract content for AI-powered analysis.",
+      "Collaborated on a full-stack application built with React, Spring Boot and PostgreSQL, with authentication and role-based access control."
     ],
     technologies: [
-      "Java",
       "Spring Boot",
       "React.js",
       "PostgreSQL",
       "Spring Security",
       "JWT",
-      "Gemini API",
-      "Tailwind CSS"
+      "Tailwind CSS",
+      "Gemini API"
     ],
     image: "/images/projects/contractiq.svg",
-    // Replace with your actual GitHub or live links. If null/empty, the button is omitted.
-    githubUrl: null,
+    githubUrl: null, // Only render if URL is provided
     liveUrl: null,
     featured: true,
     visible: true
   },
   {
     id: 2,
-    title: "Smart AI Research Assistant — Chrome Extension",
-    tagline: "In-Browser Contextual Intelligence & Knowledge Synthesis",
-    category: "Browser Extension & Backend",
-    description: "A productivity Chrome Extension operating directly in the browser side-panel. Allows users to highlight dense webpage text, generate instant AI summaries, take structured research notes, and synchronize with a reactive Spring Boot microservice.",
+    title: "Smart AI Research Assistant – Chrome Extension",
+    tagline: "In-Browser Contextual AI & Research Synthesis",
+    category: "Chrome Extension & Backend",
+    description: "Chrome extension with a side-panel UI to select webpage text, persist user notes, and generate instant summaries using a Spring Boot WebClient and Gemini API backend.",
     features: [
-      "Native Chrome Extension Manifest V3 side-panel user interface",
-      "Seamless webpage text selection and instant AI-powered summarization",
-      "Local and cloud note-taking with quick reference tags",
-      "High-performance Spring Boot REST backend utilizing WebClient",
-      "Dynamic prompt engineering with Google's Gemini API for precision answers"
+      "Built a Chrome extension with a side-panel UI to select webpage text and generate AI-powered summaries using the Gemini API.",
+      "Used Chrome Extension APIs to capture selected text from the active tab and persist user notes.",
+      "Developed a Spring Boot REST backend that dynamically builds prompts based on the requested operation and forwards them to the Gemini API."
     ],
     technologies: [
       "Chrome Extension (Manifest V3)",
@@ -56,8 +51,7 @@ export const projects = [
       "Gemini API"
     ],
     image: "/images/projects/research-assistant.svg",
-    // Replace with your actual GitHub or live links. If null/empty, the button is omitted.
-    githubUrl: null,
+    githubUrl: null, // Only render if URL is provided
     liveUrl: null,
     featured: true,
     visible: true
