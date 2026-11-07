@@ -204,32 +204,38 @@ export const ProjectCard = ({ project, index = 0, isHorizontal = false, isActive
               ))}
             </div>
 
-            {/* Action Links — Subtle outlined buttons with orange hover */}
-            <div className="flex flex-wrap items-center gap-3">
-              {project.githubUrl && project.githubUrl.trim() !== '' && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-[#151820]/80 border border-white/15 hover:border-accent text-white hover:text-accent text-xs font-semibold tracking-wide transition-all duration-200 hover:shadow-glow-sm"
-                >
-                  <GithubIcon className="w-3.5 h-3.5 text-accent" />
-                  <span>GitHub Repository</span>
-                </a>
-              )}
+            {/* Action Links — GitHub (Dark Outlined) & Live Demo (Solid Orange) */}
+            {(Boolean(project.githubUrl && project.githubUrl.trim() !== '') || Boolean(project.liveUrl && project.liveUrl.trim() !== '')) && (
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                {/* 1. GitHub Repository: Dark outlined button */}
+                {project.githubUrl && project.githubUrl.trim() !== '' && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-[#151820]/90 hover:bg-[#1A1F2C] border border-white/20 hover:border-accent text-white hover:text-accent text-xs font-semibold tracking-wide transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow-sm active:translate-y-0"
+                    aria-label={`View GitHub repository for ${project.title}`}
+                  >
+                    <GithubIcon className="w-3.5 h-3.5 text-accent transition-transform duration-200 group-hover:scale-110" />
+                    <span>GitHub Repository</span>
+                  </a>
+                )}
 
-              {project.liveUrl && project.liveUrl.trim() !== '' && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-[#151820]/80 border border-white/15 hover:border-accent text-white hover:text-accent text-xs font-semibold tracking-wide transition-all duration-200 hover:shadow-glow-sm"
-                >
-                  <span>Live Demo</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-accent" />
-                </a>
-              )}
-            </div>
+                {/* 2. Live Demo: Vibrant orange button */}
+                {project.liveUrl && project.liveUrl.trim() !== '' && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center space-x-2 px-4 py-2 rounded-lg bg-accent hover:bg-[#FFAA32] border border-accent hover:border-[#FFAA32] text-[#090A0D] text-xs font-bold font-display uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 hover:shadow-glow active:translate-y-0"
+                    aria-label={`Open live demo for ${project.title}`}
+                  >
+                    <span>Live Demo</span>
+                    <ExternalLink className="w-3.5 h-3.5 text-[#090A0D] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                )}
+              </div>
+            )}
           </div>
 
         </div>
