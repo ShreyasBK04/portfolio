@@ -18,39 +18,23 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setIsScrolled(scrollY > 30);
+      setIsScrolled(window.scrollY > 40);
 
-      // Top of page
-      if (scrollY < 120) {
-        setActiveSection('hero');
-        return;
-      }
-
-      // Bottom of page: highlight last active nav item
-      if (window.innerHeight + scrollY >= document.documentElement.scrollHeight - 100) {
-        setActiveSection('victory');
-        return;
-      }
-
-      // Mutual-exclusion focal point (40% down viewport)
-      const sections = ['victory', 'education', 'skills', 'projects', 'experience', 'hero'];
-      const focalPoint = window.innerHeight * 0.4;
-
+      // Section tracking
+      const sections = ['hero', 'experience', 'projects', 'skills', 'education', 'victory', 'contact'];
       for (const section of sections) {
         const el = document.getElementById(section);
         if (el) {
           const rect = el.getBoundingClientRect();
-          if (rect.top <= focalPoint && rect.bottom >= focalPoint) {
+          if (rect.top <= 250 && rect.bottom >= 200) {
             setActiveSection(section);
-            return;
+            break;
           }
         }
       }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

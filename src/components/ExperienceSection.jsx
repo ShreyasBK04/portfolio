@@ -9,7 +9,7 @@ export const ExperienceSection = () => {
   return (
     <section id="experience" className="editorial-section relative py-20 sm:py-28 bg-[#090A0D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 border-b border-white/10 pb-6">
           <div>
@@ -22,7 +22,7 @@ export const ExperienceSection = () => {
             </h2>
           </div>
           <p className="mt-3 md:mt-0 text-sm sm:text-base text-content-secondary max-w-md font-body">
-            Commercial software engineering, full-stack application lifecycle, and production-tested API integrations.
+            Software engineering, Full-stack application lifecycle, and Tested API integrations.
           </p>
         </div>
 

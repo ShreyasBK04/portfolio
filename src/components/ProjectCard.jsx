@@ -82,8 +82,8 @@ const FallbackAppMockup = ({ project }) => {
 
       {/* Footer Pill */}
       <div className="mt-2 pt-1 border-t border-white/5 flex items-center justify-between text-[9px] font-mono text-content-muted">
-        <span>Interface Architecture (Illustrative Preview)</span>
-        <span className="text-[#FFAA32]">System Active</span>
+        <span>Application UI Preview</span>
+        <span className="text-[#FFAA32]">System Operational</span>
       </div>
     </div>
   );
