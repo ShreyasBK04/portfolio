@@ -27,6 +27,15 @@ export const ContactSection = () => {
   const mailtoSubject = encodeURIComponent("Opportunity to Connect – Shreyas B K");
   const letsTalkUrl = `mailto:${portfolioData.contact.email}?subject=${mailtoSubject}`;
 
+  // Ensures external URLs always have absolute protocol so browsers never treat them as relative paths
+  const getSafeUrl = (url, isDownload) => {
+    if (!url || isDownload || url.startsWith('mailto:') || url.startsWith('tel:')) return url;
+    if (!/^https?:\/\//i.test(url)) {
+      return `https://${url}`;
+    }
+    return url;
+  };
+
   return (
     <section id="contact" className="editorial-section relative py-20 sm:py-28 bg-[#090A0D] border-t border-white/10 select-none">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -123,7 +132,7 @@ export const ContactSection = () => {
             return (
               <a
                 key={link.name}
-                href={link.url}
+                href={getSafeUrl(link.url, link.isDownload)}
                 download={link.isDownload ? "Shreyas_BK_Resume.pdf" : undefined}
                 target={link.isDownload ? undefined : "_blank"}
                 rel={link.isDownload ? undefined : "noopener noreferrer"}

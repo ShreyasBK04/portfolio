@@ -14,7 +14,7 @@ export const socialLinks = [
   {
     name: "LinkedIn",
     label: "LinkedIn Profile",
-    url: "https://www.linkedin.com/in/shreyas-b-k", // Update with your exact LinkedIn username if different
+    url: "https://www.linkedin.com/in/shreyas-b-k/",
     handle: "linkedin.com/in/shreyas-b-k",
     icon: "Linkedin",
     visible: true
@@ -30,8 +30,8 @@ export const socialLinks = [
   {
     name: "LeetCode",
     label: "LeetCode Profile",
-    url: "https://leetcode.com/shreyasbk", // Update with your exact LeetCode username if different
-    handle: "leetcode.com/shreyasbk",
+    url: "https://leetcode.com/u/Shreyas_B_K/",
+    handle: "leetcode.com/u/Shreyas_B_K",
     icon: "Code2",
     visible: true
   },
