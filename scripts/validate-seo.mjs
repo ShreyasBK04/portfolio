@@ -44,9 +44,23 @@ if (fs.existsSync('public/sitemap.xml')) {
 
 // 4. Validate metadata tags in index.html
 console.log('\n✓ HTML Meta Tags:');
-console.log('  Title:', html.match(/<title>([^<]+)<\/title>/)?.[1]);
-console.log('  Canonical:', html.match(/<link rel="canonical" href="([^"]+)"/)?.[1]);
-console.log('  Robots:', html.match(/<meta name="robots" content="([^"]+)"/)?.[1]);
-console.log('  OG Title:', html.match(/<meta property="og:title" content="([^"]+)"/)?.[1]);
-console.log('  Twitter Title:', html.match(/<meta name="twitter:title" content="([^"]+)"/)?.[1]);
-console.log('\n✓ All validation checks passed successfully!');
+const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+const robots = html.match(/<meta name="robots" content="([^"]+)"/)?.[1];
+const ogTitle = html.match(/<meta property="og:title" content="([^"]+)"/)?.[1];
+const ogUrl = html.match(/<meta property="og:url" content="([^"]+)"/)?.[1];
+const twitterTitle = html.match(/<meta name="twitter:title" content="([^"]+)"/)?.[1];
+
+console.log('  Title:', title);
+console.log('  Canonical:', canonical);
+console.log('  OG URL:', ogUrl);
+console.log('  Robots:', robots);
+console.log('  OG Title:', ogTitle);
+console.log('  Twitter Title:', twitterTitle);
+
+if (canonical !== 'https://shreyas.site/') {
+  console.error('✗ Canonical does not match target domain: https://shreyas.site/');
+  process.exit(1);
+}
+
+console.log('\n✓ All validation checks passed successfully for domain https://shreyas.site/ !');
