@@ -79,13 +79,14 @@ export const CinematicVideo = () => {
           loop
           muted={isMuted}
           playsInline
-          preload="auto"
+          preload="metadata"
+          aria-label="Shreyas BK Java Developer Cinematic Battle Intro"
           className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.05]"
         />
         
-        {/* Cinematic Vignette & Edge Shadowing */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#090A0D] via-transparent to-[#090A0D]/75 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#090A0D]/85 via-transparent to-[#090A0D]/85 pointer-events-none" />
+        {/* Cinematic Vignette, Left Text Contrast Backdrop & Edge Shadowing */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#090A0D] via-transparent to-[#090A0D]/85 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#090A0D]/95 via-[#090A0D]/70 sm:via-[#090A0D]/50 to-transparent pointer-events-none" />
       </div>
 
       {/* Top Narrative Pillar Pill */}
@@ -107,15 +108,13 @@ export const CinematicVideo = () => {
             </span>
           </div>
 
-          {/* Heading */}
+          {/* Heading: Unified Semantic H1 for Search Engine Discovery & Brand Authority */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-display tracking-tight text-white leading-[1.08] mb-4">
             Hi, I'm <span className="text-gradient-orange">{portfolioData.name}.</span>
+            <span className="block text-lg sm:text-2xl font-medium text-accent font-display tracking-wide mt-3 font-normal">
+              {portfolioData.professionalTitle}
+            </span>
           </h1>
-
-          {/* Professional Title */}
-          <p className="text-lg sm:text-2xl font-medium text-accent font-display tracking-wide mb-4">
-            {portfolioData.professionalTitle}
-          </p>
 
           {/* Personal Introduction */}
           <p className="text-sm sm:text-base lg:text-lg text-content-secondary leading-relaxed font-body max-w-xl mb-8 bg-[#090A0D]/60 p-3.5 rounded-lg border border-white/5 backdrop-blur-sm">

@@ -1,5 +1,5 @@
 /* Editorial Typography System */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* Fonts are loaded concurrently in index.html via <link rel="stylesheet"> with preconnect */
 
 .font-display {
   font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -27,4 +27,3 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-

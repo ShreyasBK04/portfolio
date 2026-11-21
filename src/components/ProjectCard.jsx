@@ -140,10 +140,13 @@ export const ProjectCard = ({ project, index = 0, isHorizontal = false, isActive
             {!imageError && project.image ? (
               <img
                 src={project.image}
-                alt={`${project.title} Interface Screenshot`}
+                alt={`${project.title} - Application interface screenshot developed by Shreyas BK`}
+                width="1280"
+                height="720"
                 onError={() => setImageError(true)}
                 className="w-full h-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-105"
                 loading="lazy"
+                decoding="async"
               />
             ) : (
               <FallbackAppMockup project={project} />

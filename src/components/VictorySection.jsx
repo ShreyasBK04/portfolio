@@ -1,6 +1,6 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { Sparkles, Trophy, ArrowRight, ShieldCheck, Flame } from 'lucide-react';
+import { Sparkles, Trophy, ArrowRight, ShieldCheck, Flame, UserCheck } from 'lucide-react';
 
 export const VictorySection = () => {
   return (
@@ -14,7 +14,7 @@ export const VictorySection = () => {
         <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-[#151820] border border-accent/30 mb-8 backdrop-blur-md">
           <Flame className="w-4 h-4 text-accent animate-pulse" />
           <span className="text-xs font-bold tracking-widest text-[#FFAA32] uppercase font-display">
-            SCENE 07 // THE VICTORY MOMENT
+            SCENE 07 // ABOUT SHREYAS BK &amp; ENGINEERING PHILOSOPHY
           </span>
         </div>
 
@@ -23,12 +23,28 @@ export const VictorySection = () => {
           "{portfolioData.victory.heading}"
         </h2>
 
-        <p className="text-lg sm:text-2xl text-content-secondary font-body max-w-3xl mx-auto leading-relaxed mb-10">
+        <p className="text-lg sm:text-2xl text-content-secondary font-body max-w-3xl mx-auto leading-relaxed mb-8">
           "{portfolioData.victory.quote}"
         </p>
 
+        {/* Comprehensive About Section */}
+        {portfolioData.about && (
+          <div className="max-w-3xl mx-auto my-10 p-6 sm:p-8 rounded-2xl bg-bg-card/85 border border-white/10 text-left backdrop-blur-md shadow-xl hover:border-accent/40 transition-colors">
+            <div className="flex items-center space-x-2 text-xs font-mono text-accent uppercase tracking-wider mb-2">
+              <UserCheck className="w-4 h-4 text-accent" />
+              <span>About Shreyas BK — Java Developer &amp; Software Engineer</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-bold font-display text-white tracking-tight mb-3">
+              {portfolioData.about.heading}
+            </h3>
+            <p className="text-sm sm:text-base text-content-secondary font-body leading-relaxed">
+              {portfolioData.about.bio}
+            </p>
+          </div>
+        )}
+
         {/* Brand Pillars Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-left my-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-left my-10">
           {portfolioData.brandPillars.map((pillar, idx) => (
             <div
               key={idx}
@@ -59,4 +75,3 @@ export const VictorySection = () => {
     </section>
   );
 };
-

@@ -1,0 +1,16 @@
+# Robots.txt for Shreyas BK Developer Portfolio
+# Production Domain: https://shreyasbk.dev
+
+User-agent: *
+Allow: /
+
+# Disallow private and build paths
+Disallow: /admin/
+Disallow: /private/
+Disallow: /dist/
+
+# Host specification
+Host: https://shreyasbk.dev
+
+# XML Sitemap location
+Sitemap: https://shreyasbk.dev/sitemap.xml
