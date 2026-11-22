@@ -1,95 +1,115 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { skillCategories } from '../data/skills';
-import { Terminal, Database, Layout, Wrench, Code2, Cpu } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const categoryIcons = {
-  languages: Code2,
-  backend: Cpu,
-  frontend: Layout,
-  database: Database,
-  tools: Wrench
-};
+gsap.registerPlugin(ScrollTrigger);
 
 export const SkillsSection = () => {
-  const visibleCategories = skillCategories.filter((cat) => cat.visible !== false);
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const visibleCategories = skillCategories.filter((c) => c.visible !== false);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      if (headingRef.current) {
+        gsap.fromTo(
+          headingRef.current,
+          { opacity: 0, y: 15 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.45,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: headingRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+
+      const columns = sectionRef.current?.querySelectorAll('.skill-column');
+      if (columns && columns.length > 0) {
+        gsap.fromTo(
+          columns,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.45,
+            stagger: 0.1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 80%',
+              toggleActions: 'play none none reverse',
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section id="skills" className="editorial-section relative py-20 sm:py-28 bg-[#111319]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="skills"
+      ref={sectionRef}
+      className="editorial-section relative py-16 sm:py-20 bg-[#090A0D]"
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 border-b border-white/10 pb-6">
-          <div>
-            <div className="inline-flex items-center space-x-2 text-xs font-mono text-accent mb-2 tracking-widest uppercase">
-              <Terminal className="w-4 h-4" />
-              <span>SCENE 05 // SYSTEM CAPABILITIES</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight">
-              Technical <span className="text-gradient-orange">Skills.</span>
-            </h2>
+        <div ref={headingRef} className="mb-8 sm:mb-10">
+          <div className="flex items-center space-x-2 text-xs font-mono text-[#FF7900] tracking-widest uppercase mb-2">
+            <span className="w-4 h-[2px] bg-[#FF7900] inline-block" />
+            <span>SKILLS</span>
           </div>
-          <p className="mt-3 md:mt-0 text-sm sm:text-base text-content-secondary max-w-md font-body">
-            Categorized technical stack focused on scalable backend microservices, robust relational databases, and reactive interfaces.
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-white tracking-tight">
+            My technical toolkit<span className="text-[#FF7900]">.</span>
+          </h2>
+
+          <p className="mt-2 text-sm sm:text-base text-content-secondary max-w-2xl font-body leading-relaxed">
+            Technologies and tools I use to build, test, and deploy applications.
           </p>
+
+          <div className="w-full h-px bg-white/10 my-6 sm:my-8" />
         </div>
 
-        {/* Skill Category Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {visibleCategories.map((category) => {
-            const IconComponent = categoryIcons[category.id] || Terminal;
+        {/* 4 Grouped Lists Matching Visual Reference Screenshot */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
+          {visibleCategories.map((category) => (
+            <div key={category.id} className="skill-column">
+              <h3 className="text-sm font-bold font-display text-[#FF7900] tracking-wide mb-4">
+                {category.title}
+              </h3>
 
-            return (
-              <div
-                key={category.id}
-                className="bg-bg-card rounded-2xl p-6 border border-white/10 hover:border-accent/40 transition-all duration-300 flex flex-col justify-between group hover:shadow-glow-sm"
-              >
-                <div>
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="w-10 h-10 rounded-xl bg-[#090A0D] border border-white/10 flex items-center justify-center text-accent group-hover:border-accent/50 group-hover:text-[#FFAA32] transition-colors">
-                      <IconComponent className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold font-display text-white tracking-tight">
-                        {category.title}
-                      </h3>
-                      <p className="text-xs text-content-secondary line-clamp-1">
-                        {category.subtitle}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Skills Grid */}
-                  <div className="grid grid-cols-2 gap-2 mt-5">
-                    {category.skills.map((skill, sIdx) => (
-                      <div
-                        key={sIdx}
-                        className={`p-2.5 rounded-lg border transition-all duration-200 flex flex-col justify-center ${
-                          skill.highlight
-                            ? 'bg-[#090A0D] border-accent/30 text-white shadow-sm'
-                            : 'bg-[#090A0D]/60 border-white/5 text-content-secondary hover:text-white hover:border-white/20'
-                        }`}
-                      >
-                        <span className="text-xs font-semibold font-display tracking-wide">
-                          {skill.name}
-                        </span>
-                        <span className="text-[10px] font-mono text-accent/80 mt-0.5">
-                          {skill.level}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-6 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-content-muted">
-                  <span>Category {category.id.toUpperCase()}</span>
-                  <span className="text-accent">{category.skills.length} Technologies</span>
-                </div>
-              </div>
-            );
-          })}
+              <ul className="space-y-3 font-body">
+                {category.skills.map((skill, sIdx) => (
+                  <li
+                    key={sIdx}
+                    className="flex items-center text-sm text-content-main hover:text-white transition-colors"
+                  >
+                    <span 
+                      className="w-1.5 h-1.5 rounded-[1px] bg-[#FF7900] mr-2.5 inline-block shrink-0" 
+                      aria-hidden="true"
+                    />
+                    <span>{skill.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   );
 };
-

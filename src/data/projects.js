@@ -1,60 +1,59 @@
 /**
  * Projects Showcase
- * Single source of truth from resume.
- * 
- * GitHub & Live Demo Action Buttons:
- * - Enter your repository URL in `githubUrl` to display the "GitHub Repository" button.
- * - Enter your live deployment URL in `liveUrl` to display the "Live Demo" button.
- * - If left empty or null, that button is automatically hidden without breaking layout.
+ * Exact project specifications & implementation details for recruiters.
  */
 export const projects = [
   {
     id: 1,
-    title: "ContractIQ – AI Powered Legal Contract Analyzer",
-    tagline: "Legal Tech & AI Clause Risk Analysis",
-    category: "Full Stack & AI",
-    description: "Full-stack application built with React, Spring Boot and PostgreSQL, integrating Gemini API for automated legal clause risk analysis and PDF text extraction.",
-    features: [
-      "Integrated the Google Gemini API with a Spring Boot backend to analyze legal contract clauses and generate AI-based risk assessments.",
-      "Implemented PDF text extraction and processing to prepare contract content for AI-powered analysis.",
-      "Collaborated on a full-stack application built with React, Spring Boot and PostgreSQL, with authentication and role-based access control."
+    title: "RankPulse – SEO Rank Tracking & Analyzer",
+    tagline: "Full-Stack SEO Monitoring & Keyword Intelligence",
+    category: "Full Stack & Web Architecture",
+    description: "Developed a full-stack SEO rank tracking application using Java, Spring Boot, React.js, and MySQL, enabling users to manage multiple websites and monitor Google keyword rankings.",
+    keyImplementation: [
+      "Integrated SearchAPI.io using Spring RestClient.",
+      "Implemented automated daily ranking checks with Spring Scheduling.",
+      "Stored historical ranking data to track keyword position changes.",
+      "Developed RESTful APIs using Spring Data JPA, DTOs, validation, and global exception handling.",
+      "Built a responsive React dashboard featuring interactive ranking charts, analytics, pagination, and ranking alerts."
     ],
     technologies: [
+      "Java",
       "Spring Boot",
+      "Spring Data JPA",
       "React.js",
-      "PostgreSQL",
-      "Spring Security",
-      "JWT",
-      "Tailwind CSS",
-      "Gemini API"
+      "MySQL",
+      "REST APIs"
     ],
-    image: "/images/projects/contractiq.svg",
-    githubUrl: "https://github.com/ShreyasBK04/ContractIQ-AI-Powered-Contract-Risk-Analyzer",
-    liveUrl: "",   // e.g. "https://contractiq-demo.vercel.app"
+    image: "/images/projects/rankpulse.svg",
+    githubUrl: "https://github.com/ShreyasBK04/RankPulse-SEO-Rank-Tracking-Analytics-Platform",
+    liveUrl: "",
     featured: true,
     visible: true
   },
   {
     id: 2,
-    title: "Smart AI Research Assistant – Chrome Extension",
-    tagline: "In-Browser Contextual AI & Research Synthesis",
-    category: "Chrome Extension & Backend",
-    description: "Chrome extension with a side-panel UI to select webpage text, persist user notes, and generate instant summaries using a Spring Boot WebClient and Gemini API backend.",
-    features: [
-      "Built a Chrome extension with a side-panel UI to select webpage text and generate AI-powered summaries using the Gemini API.",
-      "Used Chrome Extension APIs to capture selected text from the active tab and persist user notes.",
-      "Developed a Spring Boot REST backend that dynamically builds prompts based on the requested operation and forwards them to the Gemini API."
+    title: "ContractIQ – AI-Powered Contract Risk Analyzer",
+    tagline: "Legal Tech & AI Document Intelligence",
+    category: "Full Stack & AI",
+    description: "Developed a full-stack contract analysis application using Spring Boot and React.js to process PDF documents and assess contractual risks.",
+    keyImplementation: [
+      "Integrated Google Gemini API and Apache PDFBox for PDF text extraction, clause analysis, contract summarization, and risk classification.",
+      "Implemented temporary document processing.",
+      "Added consent validation.",
+      "Implemented PDF report generation without persistent document storage."
     ],
     technologies: [
-      "Chrome Extension (Manifest V3)",
-      "JavaScript",
+      "Java",
       "Spring Boot",
-      "WebClient",
-      "Gemini API"
+      "React.js",
+      "HTML5",
+      "CSS3",
+      "REST APIs",
+      "Google Gemini API",
+      "Apache PDFBox"
     ],
-    image: "/images/projects/research-assistant.svg",
-    githubUrl: "https://github.com/ShreyasBK04/Smart-AI-Research-Assistant",
-    liveUrl: "",   // e.g. "https://chrome.google.com/webstore/..."
+    image: "/images/projects/contractiq.svg",
+    githubUrl: "https://github.com/ShreyasBK04/ContractIQ-AI_Powered_Contract-_Risk-_Analyzer",
     featured: true,
     visible: true
   }

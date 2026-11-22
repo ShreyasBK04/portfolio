@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1117"/>
+      <stop offset="100%" stop-color="#090a0d"/>
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FF7900" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#FF7900" stop-opacity="1"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#181c24"/>
+      <stop offset="100%" stop-color="#12141a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="16" fill="url(#bgGrad)" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1.5"/>
+
+  <!-- Top bar -->
+  <rect x="0" y="0" width="800" height="48" fill="#111319" rx="16" stroke="#ffffff" stroke-opacity="0.06"/>
+  <circle cx="28" cy="24" r="5" fill="#FF5F56"/>
+  <circle cx="46" cy="24" r="5" fill="#FFBD2E"/>
+  <circle cx="64" cy="24" r="5" fill="#27C93F"/>
+  <text x="96" y="29" fill="#ffffff" fill-opacity="0.8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="14">StockWise</text>
+  <rect x="180" y="14" width="220" height="20" rx="10" fill="#1c202a" stroke="#ffffff" stroke-opacity="0.08"/>
+  <text x="195" y="28" fill="#71788e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10">Search inventory, SKU, categories...</text>
+
+  <!-- Left Sidebar Mini -->
+  <rect x="16" y="64" width="160" height="420" rx="10" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.05"/>
+  <rect x="28" y="80" width="136" height="32" rx="6" fill="#FF7900" fill-opacity="0.15" stroke="#FF7900" stroke-opacity="0.4"/>
+  <text x="44" y="101" fill="#FF7900" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="12">Dashboard</text>
+  <text x="44" y="140" fill="#8f96a3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">Inventory List</text>
+  <text x="44" y="175" fill="#8f96a3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">Demand Trends</text>
+  <text x="44" y="210" fill="#8f96a3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">Restock Alerts</text>
+  <text x="44" y="245" fill="#8f96a3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">Suppliers</text>
+  <text x="44" y="280" fill="#8f96a3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12">Analytics</text>
+
+  <!-- Stat Cards -->
+  <g transform="translate(192, 64)">
+    <rect width="186" height="80" rx="8" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.07"/>
+    <text x="16" y="28" fill="#71788e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Total SKUs Tracked</text>
+    <text x="16" y="58" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="22">12,480</text>
+    <text x="110" y="58" fill="#27C93F" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">+8.4%</text>
+  </g>
+
+  <g transform="translate(394, 64)">
+    <rect width="186" height="80" rx="8" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.07"/>
+    <text x="16" y="28" fill="#71788e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Low Stock Alerts</text>
+    <text x="16" y="58" fill="#FF7900" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="22">14 Items</text>
+    <text x="120" y="58" fill="#FF7900" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Restock</text>
+  </g>
+
+  <g transform="translate(596, 64)">
+    <rect width="188" height="80" rx="8" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.07"/>
+    <text x="16" y="28" fill="#71788e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Inventory Turnover</text>
+    <text x="16" y="58" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="22">94.8%</text>
+    <text x="130" y="58" fill="#27C93F" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Optimal</text>
+  </g>
+
+  <!-- Main Chart: Demand Trends -->
+  <g transform="translate(192, 160)">
+    <rect width="388" height="220" rx="10" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.07"/>
+    <text x="20" y="32" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="13">Weekly Demand vs Outflow</text>
+    <circle cx="340" cy="27" r="4" fill="#FF7900"/>
+    <text x="350" y="31" fill="#8f96a3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10">Demand</text>
+
+    <!-- Bars -->
+    <rect x="36" y="140" width="18" height="50" rx="3" fill="url(#barGrad)"/>
+    <rect x="74" y="110" width="18" height="80" rx="3" fill="url(#barGrad)"/>
+    <rect x="112" y="85" width="18" height="105" rx="3" fill="url(#barGrad)"/>
+    <rect x="150" y="125" width="18" height="65" rx="3" fill="url(#barGrad)"/>
+    <rect x="188" y="70" width="18" height="120" rx="3" fill="url(#barGrad)"/>
+    <rect x="226" y="95" width="18" height="95" rx="3" fill="url(#barGrad)"/>
+    <rect x="264" y="60" width="18" height="130" rx="3" fill="url(#barGrad)"/>
+    <rect x="302" y="78" width="18" height="112" rx="3" fill="url(#barGrad)"/>
+    <rect x="340" y="90" width="18" height="100" rx="3" fill="url(#barGrad)"/>
+
+    <!-- Baseline -->
+    <line x1="20" y1="190" x2="368" y2="190" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1"/>
+    <text x="36" y="206" fill="#71788e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">Mon</text>
+    <text x="74" y="206" fill="#71788e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">Tue</text>
+    <text x="112" y="206" fill="#71788e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">Wed</text>
+    <text x="150" y="206" fill="#71788e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">Thu</text>
+    <text x="188" y="206" fill="#71788e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">Fri</text>
+    <text x="226" y="206" fill="#71788e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">Sat</text>
+    <text x="264" y="206" fill="#71788e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">Sun</text>
+    <text x="302" y="206" fill="#71788e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">Mon</text>
+    <text x="340" y="206" fill="#71788e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">Tue</text>
+  </g>
+
+  <!-- Restock Recommendations Right Pane -->
+  <g transform="translate(596, 160)">
+    <rect width="188" height="220" rx="10" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.07"/>
+    <text x="16" y="32" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="13">Smart Restock</text>
+    
+    <rect x="16" y="50" width="156" height="44" rx="6" fill="#1c202a" stroke="#ffffff" stroke-opacity="0.05"/>
+    <text x="26" y="68" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">RAM DDR5 32GB</text>
+    <text x="26" y="84" fill="#FF7900" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">Stock: 4 • Reorder: 50</text>
+
+    <rect x="16" y="104" width="156" height="44" rx="6" fill="#1c202a" stroke="#ffffff" stroke-opacity="0.05"/>
+    <text x="26" y="122" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">NVMe 2TB Gen4</text>
+    <text x="26" y="138" fill="#FF7900" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">Stock: 2 • Reorder: 30</text>
+
+    <rect x="16" y="158" width="156" height="44" rx="6" fill="#1c202a" stroke="#ffffff" stroke-opacity="0.05"/>
+    <text x="26" y="176" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600">CPU Liquid Cooler</text>
+    <text x="26" y="192" fill="#27C93F" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9">Stock: 18 • Reorder: 20</text>
+  </g>
+
+  <!-- Bottom status ticker -->
+  <rect x="192" y="394" width="592" height="40" rx="8" fill="url(#cardGrad)" stroke="#ffffff" stroke-opacity="0.06"/>
+  <circle cx="212" cy="414" r="4" fill="#27C93F"/>
+  <text x="226" y="418" fill="#8f96a3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11">Real-time sync active • MySQL Database connected • Spring Boot Scheduling running</text>
+</svg>

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Navbar } from '../components/Navbar';
+import { RobotCompanion } from '../components/RobotCompanion';
 import { HeroSection } from '../components/HeroSection';
 import { ExperienceSection } from '../components/ExperienceSection';
-import { TrainingSection } from '../components/TrainingSection';
 import { ProjectSection } from '../components/ProjectSection';
 import { SkillsSection } from '../components/SkillsSection';
 import { EducationSection } from '../components/EducationSection';
@@ -20,6 +20,9 @@ export const Home = () => {
 
   return (
     <div className="relative min-h-screen bg-[#090A0D] text-[#F5F5F5] overflow-x-hidden selection:bg-[#FF7900] selection:text-black">
+      {/* Interactive Robot Companion */}
+      <RobotCompanion />
+
       {/* Subtle cinematic grain overlay */}
       <div className="film-grain" />
 
@@ -34,10 +37,7 @@ export const Home = () => {
         {/* SCENE 02: Professional Commercial Experience */}
         <ExperienceSection />
 
-        {/* SCENE 03: Training & Development */}
-        <TrainingSection />
-
-        {/* SCENE 04: Featured Projects */}
+        {/* SCENE 03: Featured Projects */}
         <ProjectSection />
 
         {/* SCENE 05: Technical Skills */}
@@ -58,4 +58,3 @@ export const Home = () => {
     </div>
   );
 };
-
